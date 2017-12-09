@@ -6,6 +6,11 @@
 # The idea is, we check out an appropriate version of the index.html
 # file, then run this script on it to extract the price info we want.
 
+# Commits to use:
+# 73514c58396c8e62944cd03380de387f69f29ca1 for 2017-08-16
+# 61ce503ddb12ec38c752e2830e4b51e7714c2a91 for 2017-05-19
+
+
 from bs4 import BeautifulSoup
 import re
 

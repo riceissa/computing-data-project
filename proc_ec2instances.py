@@ -5,10 +5,16 @@
 #
 # The idea is, we check out an appropriate version of the index.html
 # file, then run this script on it to extract the price info we want.
+#
+# Run this script from the ec2instances.info repo, not the
+# computing-data-project repo. For example you can do:
+#     cd ec2instances.info
+#     ../computing-data-project/proc_ec2instances.py > ../computing-data-project/sql/ec2-prices.sql
 
 
 from bs4 import BeautifulSoup
 import re
+import subprocess
 
 
 # These are chosen to be about 3 months apart, starting in September
@@ -22,7 +28,8 @@ commits = [
 
 def main():
     for commit in commits:
-        print_sql(commits)
+        subprocess.run(["git", "checkout", commit])
+        print_sql(commit)
 
 
 def print_sql(commit):
@@ -32,7 +39,7 @@ def print_sql(commit):
     # anyway, so just hard-code that
     region = "US East (N. Virginia)"
 
-    with open("../ec2instances.info/www/index.html", "r") as f:
+    with open("www/index.html", "r") as f:
         soup = BeautifulSoup(f, "lxml")
 
     lu = soup.body.find_all(text=re.compile(r'Last [Uu]pdate:.*$'))
@@ -61,6 +68,8 @@ def print_sql(commit):
                       'Linux'
                   ))
             first = False
+
+    print(";\n")
 
 if __name__ == "__main__":
     main()

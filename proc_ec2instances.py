@@ -63,16 +63,27 @@ def print_sql(commit):
     with open("www/index.html", "r") as f:
         soup = BeautifulSoup(f, "lxml")
 
+    # Try to get the last update date from the page. The format of
+    # this changed a couple of times, so we have to try a few
+    # different ways.
     lu = soup.body.find_all(text=re.compile(r'Last [Uu]pdate:.*$'))
+    m = None
     if lu:
         try:
             m = re.match('Last [Uu]pdate: (\d\d\d\d-\d\d-\d\d) .*$', lu[0])
         except:
             print(lu, file=sys.stderr)
-    else:
+    if not m:
         lu = soup.body.find_all(text=re.compile(r'.*This was last done at.*'))
         try:
             m = re.search('This was last done at (\d\d\d\d-\d\d-\d\d) .*$',
+                          lu[0].strip())
+        except:
+            print(lu, file=sys.stderr)
+    if not m:
+        lu = soup.body.find_all(text=re.compile(r'.*Generated at:.*'))
+        try:
+            m = re.search('Generated at: (\d\d\d\d-\d\d-\d\d) .*$',
                           lu[0].strip())
         except:
             print(lu, file=sys.stderr)

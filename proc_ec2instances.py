@@ -11,7 +11,7 @@
 #     cd ec2instances.info
 #     ../computing-data-project/proc_ec2instances.py > ../computing-data-project/sql/ec2-prices.sql
 
-
+import sys
 from bs4 import BeautifulSoup
 import re
 import subprocess
@@ -64,7 +64,18 @@ def print_sql(commit):
         soup = BeautifulSoup(f, "lxml")
 
     lu = soup.body.find_all(text=re.compile(r'Last [Uu]pdate:.*$'))
-    m = re.match('Last [Uu]pdate: (\d\d\d\d-\d\d-\d\d) .*$', lu[0])
+    if lu:
+        try:
+            m = re.match('Last [Uu]pdate: (\d\d\d\d-\d\d-\d\d) .*$', lu[0])
+        except:
+            print(lu, file=sys.stderr)
+    else:
+        lu = soup.body.find_all(text=re.compile(r'.*This was last done at.*'))
+        try:
+            m = re.search('This was last done at (\d\d\d\d-\d\d-\d\d) .*$',
+                          lu[0].strip())
+        except:
+            print(lu, file=sys.stderr)
     last_update = m.group(1)
 
     print("""# Prices from commit {}""".format(commit))
@@ -79,8 +90,12 @@ def print_sql(commit):
         if apiname and cost:
             cost = cost.text.strip()
             if cost != "unavailable":
-                assert cost.startswith("$") and cost.endswith(" hourly"), cost
-                cost = cost[len("$"):-len(" hourly")]
+                if cost.startswith("$") and cost.endswith(" hourly"):
+                    cost = cost[len("$"):-len(" hourly")]
+                elif cost.startswith("$") and cost.endswith(" per hour"):
+                    cost = cost[len("$"):-len(" per hour")]
+                else:
+                    raise ValueError("Cost is in a weird format we don't know about", cost)
                 print("    " + ("" if first else ",") +
                       """('{}',{},'{}','{}','{}')""".format(
                           apiname.text.strip(),

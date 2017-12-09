@@ -31,12 +31,11 @@ def main():
         apiname = tr.find("td", {"class": "apiname"})
         cost = tr.find("td", {"class": "cost-ondemand-linux"})
         if apiname and cost:
-            pass
-            # print(apiname.text.strip(), cost.text.strip())
+            cost = cost.text.strip()[len("$"):-len(" hourly")]
             print("    " + ("" if first else ",") +
                   """('{}',{},'{}','{}','{},)""".format(
                       apiname.text.strip(),
-                      cost.text.strip(),
+                      cost,
                       last_update,
                       region,
                       'Linux'

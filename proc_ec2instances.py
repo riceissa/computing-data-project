@@ -78,17 +78,18 @@ def print_sql(commit):
         cost = tr.find("td", {"class": "cost-ondemand-linux"})
         if apiname and cost:
             cost = cost.text.strip()
-            assert cost.startswith("$") and cost.endswith(" hourly")
-            cost = cost[len("$"):-len(" hourly")]
-            print("    " + ("" if first else ",") +
-                  """('{}',{},'{}','{}','{}')""".format(
-                      apiname.text.strip(),
-                      cost,
-                      last_update,
-                      region,
-                      'Linux'
-                  ))
-            first = False
+            if cost != "unavailable":
+                assert cost.startswith("$") and cost.endswith(" hourly"), cost
+                cost = cost[len("$"):-len(" hourly")]
+                print("    " + ("" if first else ",") +
+                      """('{}',{},'{}','{}','{}')""".format(
+                          apiname.text.strip(),
+                          cost,
+                          last_update,
+                          region,
+                          'Linux'
+                      ))
+                first = False
 
     print(";\n")
 

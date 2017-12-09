@@ -33,7 +33,7 @@ def main():
         if apiname and cost:
             cost = cost.text.strip()[len("$"):-len(" hourly")]
             print("    " + ("" if first else ",") +
-                  """('{}',{},'{}','{}','{},)""".format(
+                  """('{}',{},'{}','{}','{}')""".format(
                       apiname.text.strip(),
                       cost,
                       last_update,

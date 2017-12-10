@@ -87,6 +87,13 @@ def print_sql(commit):
                           lu[0].strip())
         except:
             print(lu, file=sys.stderr)
+    if not m:
+        # Just get the date from the commit date
+        m = re.search(r'(\d\d\d\d-\d\d-\d\d).*',
+                      subprocess.check_output(["git", "log", "-1",
+                                               "--format=%ai", "--date=local"])
+                      .decode('utf8').strip())
+
     last_update = m.group(1)
 
     print("""# Prices from commit {}""".format(commit))
@@ -97,7 +104,14 @@ def print_sql(commit):
     first = True
     for tr in table.find_all("tr"):
         apiname = tr.find("td", {"class": "apiname"})
-        cost = tr.find("td", {"class": "cost-ondemand-linux"})
+        if not apiname:
+            try:
+                apiname = tr.find_all("td")[7]
+            except:
+                print(tr, file=sys.stderr)
+        cost = (tr.find("td", {"class": "cost-ondemand-linux"}) or
+                tr.find("td", {"class": "cost-linux"}) or
+                tr.find("td", {"class": "cost"}))
         if apiname and cost:
             cost = cost.text.strip()
             if cost != "unavailable":

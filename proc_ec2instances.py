@@ -107,6 +107,12 @@ def print_sql(commit):
         if not apiname:
             try:
                 apiname = tr.find_all("td")[7]
+                # For the very first two earliest commits, it's the
+                # position 6 that has the instance API name. Position
+                # 7 has the cost info, so if we get a cost-looking
+                # thing, we had better get the other column.
+                if "$" in apiname.text:
+                    apiname = tr.find_all("td")[6]
             except:
                 print(tr, file=sys.stderr)
         cost = (tr.find("td", {"class": "cost-ondemand-linux"}) or

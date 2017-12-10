@@ -104,20 +104,21 @@ def print_sql(commit):
     first = True
     for tr in table.find_all("tr"):
         apiname = tr.find("td", {"class": "apiname"})
-        if not apiname:
-            try:
-                apiname = tr.find_all("td")[7]
-                # For the very first two earliest commits, it's the
-                # position 6 that has the instance API name. Position
-                # 7 has the cost info, so if we get a cost-looking
-                # thing, we had better get the other column.
-                if "$" in apiname.text:
-                    apiname = tr.find_all("td")[6]
-            except:
-                print(tr, file=sys.stderr)
+        if not apiname and tr.find("td"):
+            # There is at least one "td", so we are in a non-header
+            # row
+            apiname = tr.find_all("td")[7]
+            # For the very first two earliest commits, it's the
+            # position 6 that has the instance API name. Position
+            # 7 has the cost info, so if we get a cost-looking
+            # thing, we had better get the other column.
+            if "$" in apiname.text:
+                apiname = tr.find_all("td")[6]
+
         cost = (tr.find("td", {"class": "cost-ondemand-linux"}) or
                 tr.find("td", {"class": "cost-linux"}) or
                 tr.find("td", {"class": "cost"}))
+
         if apiname and cost:
             cost = cost.text.strip()
             if cost != "unavailable":

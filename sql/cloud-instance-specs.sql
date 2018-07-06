@@ -102,4 +102,16 @@ insert into cloud_instance_specs(name,ram,cpu,ecu,processor,network_throughput,s
     ,('d2.2xlarge',61,8,28,NULL,,'6 x 2000 HDD')
     ,('d2.4xlarge',122,16,56,NULL,,'12 x 2000 HDD')
     ,('d2.8xlarge',244,36,116,NULL,,'24 x 2000 HDD')
+    ,('Nanode 1GB',1,1,NULL,NULL,NULL,'25 GB SSD')
+
+    # Linode data from http://archive.today/2018.07.06-175634/https://www.linode.com/pricing
+    ,('Linode 2GB',2,1,NULL,NULL,NULL,'50 GB SSD')
+    ,('Linode 4GB',4,2,NULL,NULL,NULL,'80 GB SSD')
+    ,('Linode 8GB',8,4,NULL,NULL,NULL,'160 GB SSD')
+    ,('Linode 16GB',16,6,NULL,NULL,NULL,'320 GB SSD')
+    ,('Linode 24GB',24,1,NULL,NULL,NULL,'20 GB SSD')
+    ,('Linode 48GB',48,2,NULL,NULL,NULL,'40 GB SSD')
+    ,('Linode 90GB',90,4,NULL,NULL,NULL,'90 GB SSD')
+    ,('Linode 150GB',150,8,NULL,NULL,NULL,'200 GB SSD')
+    ,('Linode 300GB',300,16,NULL,NULL,NULL,'340 GB SSD')
 ;

@@ -7,8 +7,7 @@ create table cloud_instance_costs (
 
     odate date,
     region varchar(100),
-    operating_system varchar(100),
-    unique key name(`name`)
+    operating_system varchar(100)
 ) ENGINE=InnoDB AUTO_INCREMENT=15239276 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 insert into cloud_instance_costs(name, cost, odate, region, operating_system) values

@@ -245,19 +245,20 @@ def print_sql(commit):
                     cost = cost[len("$"):-len(" per hour")]
                 else:
                     raise ValueError("Cost is in a weird format we don't know about", cost)
-                specs = INSTANCE_MAP[apiname.text.strip())
+                specs = INSTANCE_MAP[apiname.text.strip()]
                 print("    " + ("" if first else ",") + ",".join([
-                    mysql_quote(apiname.text.strip()),
-                    mysql_quote(specs["ram"]),
-                    mysql_quote(specs["cpu"]),
-                    mysql_quote(specs["ecu"]),
-                    mysql_quote(specs["processor"]),
-                    mysql_quote(specs["network_throughput"]),
-                    mysql_quote(specs["storage"]),
-                    mysql_quote(cost),
-                    mysql_quote(last_update),
-                    mysql_quote(region),
-                    mysql_quote('Linux'),
+                    mysql_quote("Amazon EC2"),  # service
+                    mysql_quote(apiname.text.strip()),  # name
+                    mysql_quote(specs["ram"]),  # ram
+                    mysql_quote(specs["cpu"]),  # cpu
+                    mysql_quote(specs["ecu"]),  # ecu
+                    mysql_quote(specs["processor"]),  # processor
+                    mysql_quote(specs["network_throughput"]),  # network_throughput
+                    mysql_quote(specs["storage"]),  # storage_type
+                    mysql_quote(cost),  # cost
+                    mysql_quote(last_update),  # date_observed
+                    mysql_quote(region),  # region
+                    mysql_quote('Linux'),  # operating_system
                 ])
                 first = False
 

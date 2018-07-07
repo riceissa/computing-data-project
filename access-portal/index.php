@@ -9,10 +9,10 @@
     <meta property="og:site_name" content="Computing Data Project" />
     <meta property="og:locale" content="en_US" />
     <title>Hello World - Computing Data Project</title>
-    <link rel="stylesheet" href="/tablesorter.css">
-    <script src="/jquery.min.js"></script>
-    <script src="/jquery.tablesorter.js"></script>
-    <script src="/anchor.min.js"></script>
+    <link rel="stylesheet" href="tablesorter.css">
+    <script src="jquery.min.js"></script>
+    <script src="jquery.tablesorter.js"></script>
+    <script src="anchor.min.js"></script>
   </head>
   <body>
     <?php include("backend/list_instances.inc"); ?>

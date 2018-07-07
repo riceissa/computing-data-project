@@ -67,6 +67,8 @@ commits = [
 ]
 
 
+# This variable is defined for convenience so that the data below is exactly as
+# in MySQL
 NULL = ""
 
 # (name,ram,cpu,ecu,processor,network_throughput,storage)
@@ -156,6 +158,26 @@ INSTANCE_SPECS = [
     ,('d2.2xlarge',61,8,28,NULL,NULL,'6 x 2000 HDD')
     ,('d2.4xlarge',122,16,56,NULL,NULL,'12 x 2000 HDD')
     ,('d2.8xlarge',244,36,116,NULL,NULL,'24 x 2000 HDD')
+
+    # previous generation instances
+    # https://aws.amazon.com/ec2/previous-generation/
+    ,('m1.small',1.7,1,NULL,NULL,NULL,'1 x 160 GB')
+    ,('m1.medium',3.75,1,NULL,NULL,NULL,'1 x 410 GB')
+    ,('m1.large',7.5,2,NULL,NULL,NULL,'2 x 420 GB')
+    ,('m1.xlarge',15,4,NULL,NULL,NULL,'4 x 420 GB')
+    ,('c1.medium',1.7,2,NULL,NULL,NULL,'1 x 350 GB')
+    ,('c1.xlarge',7,8,NULL,NULL,NULL,'4 x 420 GB')
+    ,('cc2.8xlarge',60.5,32,NULL,NULL,NULL,'4 x 840 GB')
+    ,('m2.xlarge',17.1,2,NULL,NULL,NULL,'1 x 420 GB')
+    ,('m2.2xlarge',34.2,4,NULL,NULL,NULL,'1 x 850 GB')
+    ,('m2.4xlarge',68.4,8,NULL,NULL,NULL,'2 x 840 GB')
+    ,('cr1.8xlarge',244,32,NULL,NULL,NULL,'2 x 120 GB')
+    ,('i2.xlarge',30.5,4,NULL,NULL,NULL,'1 x 800 GB')
+    ,('i2.2xlarge',61,8,NULL,NULL,NULL,'2 x 800 GB')
+    ,('i2.4xlarge',122,16,NULL,NULL,NULL,'4 x 800 GB')
+    ,('i2.8xlarge',244,32,NULL,NULL,NULL,'8 x 800 GB')
+    ,('hs1.8xlarge',117,16,NULL,NULL,NULL,'24 x 2000 GB')
+    ,('t1.micro',0.613,1,NULL,NULL,NULL,'EBS Only')
 ]
 
 INSTANCE_MAP = {}

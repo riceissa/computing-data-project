@@ -279,6 +279,9 @@ def print_sql(commit):
                                          {"ram": "", "cpu": "", "ecu": "",
                                           "processor": "", "network_throughput": "",
                                           "storage": ""})
+                # The following should be used instead of the above eventually,
+                # once we record all the instance types in INSTANCE_SPECS.
+                # specs = INSTANCE_MAP[apiname.text.strip()]
                 print("    " + ("" if first else ",") + "(" + ",".join([
                     mysql_quote("Amazon EC2"),  # service
                     mysql_quote(apiname.text.strip()),  # name

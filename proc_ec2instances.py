@@ -17,6 +17,18 @@ import re
 import subprocess
 
 
+def mysql_quote(x):
+    """Quote the string x using MySQL quoting rules. If x is the empty string,
+    return "NULL". Probably not safe against maliciously formed strings, but
+    our input is fixed and from a basically trustable source."""
+    if not x:
+        return "NULL"
+    x = x.replace("\\", "\\\\")
+    x = x.replace("'", "''")
+    x = x.replace("\n", "\\n")
+    return "'{}'".format(x)
+
+
 # These are chosen to be about 3 months apart, starting in September
 # 2017, which itself is 3 months prior to December 2017 (when this
 # project began)
@@ -45,6 +57,111 @@ commits = [
     "ef7cbbf2a06da7f2296da1e18ceff8441548ee49",
     "3a61bbd527963fe9f692c3f4c4e72a6256fb78e0",
 ]
+
+
+NULL = ""
+
+# (name,ram,cpu,ecu,processor,network_throughput,storage)
+INSTANCE_SPECS = [
+    ('t2.nano',0.5,1,NULL,'Intel Xeon family',NULL,'EBS Only')
+    ,('t2.micro',1,1,NULL,'Intel Xeon family',NULL,'EBS Only')
+    ,('t2.small',2,1,NULL,'Intel Xeon family',NULL,'EBS Only')
+    ,('t2.medium',4,2,NULL,'Intel Xeon family',NULL,'EBS Only')
+    ,('t2.large',8,2,NULL,'Intel Xeon family',NULL,'EBS Only')
+    ,('t2.xlarge',16,4,NULL,'Intel Xeon family',NULL,'EBS Only')
+    ,('t2.2xlarge',32,8,NULL,'Intel Xeon family',NULL,'EBS Only')
+    ,('m5.large',8,2,10,NULL,NULL,'EBS Only')
+    ,('m5.xlarge',16,4,15,NULL,NULL,'EBS Only')
+    ,('m5.2xlarge',32,8,31,NULL,NULL,'EBS Only')
+    ,('m5.4xlarge',64,16,61,NULL,NULL,'EBS Only')
+    ,('m5.12xlarge',192,48,173,NULL,NULL,'EBS Only')
+    ,('m5.24xlarge',384,96,345,NULL,NULL,'EBS Only')
+    ,('m4.large',8,2,6.5,'Intel Xeon E5-2676 v3',NULL,'EBS Only')
+    ,('m4.xlarge',16,4,13,'Intel Xeon E5-2676 v3',NULL,'EBS Only')
+    ,('m4.2xlarge',32,8,26,'Intel Xeon E5-2676 v3',NULL,'EBS Only')
+    ,('m4.4xlarge',64,16,53.5,'Intel Xeon E5-2676 v3',NULL,'EBS Only')
+    ,('m4.10xlarge',160,40,124.5,'Intel Xeon E5-2676 v3',NULL,'EBS Only')
+    ,('m4.16xlarge',256,64,188,'Intel Xeon E5-2686 v4',NULL,'EBS Only')
+    ,('m3.medium',3.75,1,3,NULL,NULL,'1 x 4 SSD')
+    ,('m3.large',7.5,2,6.5,NULL,NULL,'1 x 32 SSD')
+    ,('m3.xlarge',15,4,13,NULL,NULL,'2 x 40 SSD')
+    ,('m3.2xlarge',30,8,26,NULL,NULL,'2 x 80 SSD')
+    ,('c5.large',4,2,8,NULL,NULL,'EBS Only')
+    ,('c5.xlarge',8,4,16,NULL,NULL,'EBS Only')
+    ,('c5.2xlarge',16,8,31,NULL,NULL,'EBS Only')
+    ,('c5.4xlarge',32,16,62,NULL,NULL,'EBS Only')
+    ,('c5.9xlarge',72,36,139,NULL,NULL,'EBS Only')
+    ,('c5.18xlarge',144,72,278,NULL,NULL,'EBS Only')
+    ,('c4.large',3.75,2,8,NULL,NULL,'EBS Only')
+    ,('c4.xlarge',7.5,4,16,NULL,NULL,'EBS Only')
+    ,('c4.2xlarge',15,8,31,NULL,NULL,'EBS Only')
+    ,('c4.4xlarge',30,16,62,NULL,NULL,'EBS Only')
+    ,('c4.8xlarge',60,36,132,NULL,NULL,'EBS Only')
+    ,('c3.large',3.75,2,7,NULL,NULL,'2 x 16 SSD')
+    ,('c3.xlarge',7.5,4,14,NULL,NULL,'2 x 40 SSD')
+    ,('c3.2xlarge',15,8,28,NULL,NULL,'2 x 80 SSD')
+    ,('c3.4xlarge',30,16,55,NULL,NULL,'2 x 160 SSD')
+    ,('c3.8xlarge',60,32,108,NULL,NULL,'2 x 320 SSD')
+    ,('p2.xlarge',61,4,12,NULL,NULL,'EBS Only')
+    ,('p2.8xlarge',488,32,94,NULL,NULL,'EBS Only')
+    ,('p2.16xlarge',732,64,188,NULL,NULL,'EBS Only')
+    ,('p3.2xlarge',61,8,23.5,NULL,NULL,'EBS Only')
+    ,('p3.8xlarge',244,32,94,NULL,NULL,'EBS Only')
+    ,('p3.16xlarge',488,64,188,NULL,NULL,'EBS Only')
+    ,('g2.2xlarge',15,8,26,NULL,NULL,'60 SSD')
+    ,('g2.8xlarge',60,32,104,NULL,NULL,'2 x 120 SSD')
+    ,('g3.4xlarge',122,16,47,NULL,NULL,'EBS Only')
+    ,('g3.8xlarge',244,32,94,NULL,NULL,'EBS Only')
+    ,('g3.16xlarge',488,64,188,NULL,NULL,'EBS Only')
+    ,('f1.2xlarge',122,8,26,NULL,NULL,'1 x 470 NVMe SSD')
+    ,('f1.16xlarge',976,64,188,NULL,NULL,'4 x 940 NVMe SSD')
+    ,('x1.16xlarge',976,64,174.5,NULL,NULL,'1 x 1920 SSD')
+    ,('x1.32xlarge',1952,128,349,NULL,NULL,'2 x 1920 SSD')
+    ,('x1e.xlarge',122,4,12,NULL,NULL,'1 x 120 SSD')
+    ,('x1e.2xlarge',244,8,23,NULL,NULL,'1 x 240 SSD')
+    ,('x1e.4xlarge',488,16,47,NULL,NULL,'1 x 480 SSD')
+    ,('x1e.8xlarge',976,32,91,NULL,NULL,'1 x 960')
+    ,('x1e.16xlarge',1952,64,179,NULL,NULL,'1 x 1920 SSD')
+    ,('x1e.32xlarge',3904,128,340,NULL,NULL,'2 x 1920 SSD')
+    ,('r3.large',15,2,6.5,NULL,NULL,'1 x 32 SSD')
+    ,('r3.xlarge',30.5,4,13,NULL,NULL,'1 x 80 SSD')
+    ,('r3.2xlarge',61,8,26,NULL,NULL,'1 x 160 SSD')
+    ,('r3.4xlarge',122,16,52,NULL,NULL,'1 x 320 SSD')
+    ,('r3.8xlarge',244,32,104,NULL,NULL,'2 x 320 SSD')
+    ,('r4.large',15.25,2,7,NULL,NULL,'EBS Only')
+    ,('r4.xlarge',30.5,4,13.5,NULL,NULL,'EBS Only')
+    ,('r4.2xlarge',61,8,27,NULL,NULL,'EBS Only')
+    ,('r4.4xlarge',122,16,53,NULL,NULL,'EBS Only')
+    ,('r4.8xlarge',244,32,99,NULL,NULL,'EBS Only')
+    ,('r4.16xlarge',488,64,195,NULL,NULL,'EBS Only')
+    ,('i3.large',15.25,2,7,NULL,NULL,'1 x 475 NVMe SSD')
+    ,('i3.xlarge',30.5,4,13,NULL,NULL,'1 x 950 NVMe SSD')
+    ,('i3.2xlarge',61,8,27,NULL,NULL,'1 x 1900 NVMe SSD')
+    ,('i3.4xlarge',122,16,53,NULL,NULL,'2 x 1900 NVMe SSD')
+    ,('i3.8xlarge',244,32,99,NULL,NULL,'4 x 1900 NVMe SSD')
+    ,('i3.16xlarge',488,64,200,NULL,NULL,'8 x 1900 NVMe SSD')
+    ,('h1.2xlarge',32,8,26,NULL,NULL,'1 x 2000 HDD')
+    ,('h1.4xlarge',64,16,53.5,NULL,NULL,'2 x 2000 HDD')
+    ,('h1.8xlarge',128,32,99,NULL,NULL,'4 x 2000 HDD')
+    ,('h1.16xlarge',256,64,188,NULL,NULL,'8 x 2000 HDD')
+    ,('d2.xlarge',30.5,4,14,NULL,NULL,'3 x 2000 HDD')
+    ,('d2.2xlarge',61,8,28,NULL,NULL,'6 x 2000 HDD')
+    ,('d2.4xlarge',122,16,56,NULL,NULL,'12 x 2000 HDD')
+    ,('d2.8xlarge',244,36,116,NULL,NULL,'24 x 2000 HDD')
+]
+
+INSTANCE_MAP = {}
+
+for instance in INSTANCE_SPECS:
+    name, ram, cpu, ecu, processor, network_throughput, storage = instance
+    INSTANCE_MAP[name] = {
+            "ram": ram,
+            "cpu": cpu,
+            "ecu": ecu,
+            "processor": processor,
+            "network_throughput": network_throughput,
+            "storage": storage,
+            }
 
 
 def main():
@@ -98,7 +215,7 @@ def print_sql(commit):
 
     print("""# Prices from commit {}""".format(commit))
 
-    print("""insert into cloud_instance_costs(name, cost, odate, region, operating_system) values""")
+    print("""insert into cloud_instances(service,name,ram,cpu,ecu,processor,network_throughput,storage_type,cost,date_observed,region,operating_system) values""")
 
     table = soup.find("table")
     first = True
@@ -128,14 +245,20 @@ def print_sql(commit):
                     cost = cost[len("$"):-len(" per hour")]
                 else:
                     raise ValueError("Cost is in a weird format we don't know about", cost)
-                print("    " + ("" if first else ",") +
-                      """('{}',{},'{}','{}','{}')""".format(
-                          apiname.text.strip(),
-                          cost,
-                          last_update,
-                          region,
-                          'Linux'
-                      ))
+                specs = INSTANCE_MAP[apiname.text.strip())
+                print("    " + ("" if first else ",") + ",".join([
+                    mysql_quote(apiname.text.strip()),
+                    mysql_quote(specs["ram"]),
+                    mysql_quote(specs["cpu"]),
+                    mysql_quote(specs["ecu"]),
+                    mysql_quote(specs["processor"]),
+                    mysql_quote(specs["network_throughput"]),
+                    mysql_quote(specs["storage"]),
+                    mysql_quote(cost),
+                    mysql_quote(last_update),
+                    mysql_quote(region),
+                    mysql_quote('Linux'),
+                ])
                 first = False
 
     print(";\n")

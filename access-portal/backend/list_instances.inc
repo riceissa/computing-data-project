@@ -53,7 +53,7 @@
         <td><?= $row['processor'] ?></td>
         <td><?= $row['storage_type'] ?></td>
         <td style="text-align: right;"><?= $row['storage_size'] ?></td>
-        <td style="text-align: right;"><?= $row['cost'] ?></td>
+        <td style="text-align: right;"><?= number_format($row['cost'], 4) ?></td>
       </tr>
     <?php } ?>
   </tbody>

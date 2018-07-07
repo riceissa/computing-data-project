@@ -43,12 +43,12 @@
         <td><?= $row['name'] ?></td>
         <td><?= $row['region'] ?></td>
         <td><?= $row['date_observed'] ?></td>
-        <td><?= $row['ram'] ?></td>
-        <td><?= $row['cpu'] ?></td>
+        <td style="text-align: right;"><?= $row['ram'] ?></td>
+        <td style="text-align: right;"><?= $row['cpu'] ?></td>
         <td><?= $row['processor'] ?></td>
         <td><?= $row['storage_type'] ?></td>
-        <td><?= $row['storage_size'] ?></td>
-        <td><?= $row['cost'] ?></td>
+        <td style="text-align: right;"><?= $row['storage_size'] ?></td>
+        <td style="text-align: right;"><?= $row['cost'] ?></td>
       </tr>
     <?php } ?>
   </tbody>

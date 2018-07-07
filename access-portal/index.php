@@ -13,6 +13,7 @@
     <script src="jquery.min.js"></script>
     <script src="jquery.tablesorter.js"></script>
     <script src="anchor.min.js"></script>
+    <?php include_once("style.inc"); ?>
   </head>
   <body>
     <?php include("backend/list_instances.inc"); ?>

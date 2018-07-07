@@ -29,6 +29,14 @@ def mysql_quote(x):
     return "'{}'".format(x)
 
 
+def mysql_float(x):
+    if not x:
+        return "NULL"
+    if isinstance(x, int) or isinstance(x, float):
+        return str(x)
+    return x
+
+
 # These are chosen to be about 3 months apart, starting in September
 # 2017, which itself is 3 months prior to December 2017 (when this
 # project began)
@@ -252,9 +260,9 @@ def print_sql(commit):
                 print("    " + ("" if first else ",") + "(" + ",".join([
                     mysql_quote("Amazon EC2"),  # service
                     mysql_quote(apiname.text.strip()),  # name
-                    str(specs["ram"]),  # ram
-                    str(specs["cpu"]),  # cpu
-                    str(specs["ecu"]),  # ecu
+                    mysql_float(specs["ram"]),  # ram
+                    mysql_float(specs["cpu"]),  # cpu
+                    mysql_float(specs["ecu"]),  # ecu
                     mysql_quote(specs["processor"]),  # processor
                     mysql_quote(specs["network_throughput"]),  # network_throughput
                     mysql_quote(specs["storage"]),  # storage_type

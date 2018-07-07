@@ -12,6 +12,11 @@
     $param_str .= "d";
     $params[] = $_REQUEST['min_ram'];
   }
+  if ($_REQUEST['service_filter'] ?? '') {
+    $query .= " and service regexp ?";
+    $param_str .= "s";
+    $params[] = $_REQUEST['service_filter'];
+  }
   if ($stmt = $mysqli->prepare($query)) {
     if ($params) {
       $stmt->bind_param($param_str, ...$params);

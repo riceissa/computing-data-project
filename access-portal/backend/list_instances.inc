@@ -26,8 +26,14 @@
     <tr>
       <th>Service</th>
       <th>Name</th>
-      <th>RAM</th>
+      <th>Region</th>
+      <th>Date</th>
+      <th>RAM (GB)</th>
       <th>vCPU</th>
+      <th>Processor</th>
+      <th>Storage type</th>
+      <th>Storage size (GB)</th>
+      <th>Cost (dollars per hour)</th>
     </tr>
   </thead>
   <tbody>
@@ -35,8 +41,14 @@
       <tr>
         <td><?= $row['service'] ?></td>
         <td><?= $row['name'] ?></td>
+        <td><?= $row['region'] ?></td>
+        <td><?= $row['date_observed'] ?></td>
         <td><?= $row['ram'] ?></td>
         <td><?= $row['cpu'] ?></td>
+        <td><?= $row['processor'] ?></td>
+        <td><?= $row['storage_type'] ?></td>
+        <td><?= $row['storage_size'] ?></td>
+        <td><?= $row['cost'] ?></td>
       </tr>
     <?php } ?>
   </tbody>

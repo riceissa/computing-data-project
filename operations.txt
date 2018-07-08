@@ -1,0 +1,53 @@
+s3 ops:
+    - Data Retrievals
+    - Data Returned by S3 Select
+    - Data Scanned by S3 Select
+    - PUT
+    - COPY
+    - POST
+    - GET
+    - SELECT
+
+google storage (this is the JSON API; there is also an XML API):
+    - storage.*.insert
+    - storage.*.patch
+    - storage.*.update
+    - storage.*.setIamPolicy
+    - storage.buckets.list
+    - storage.notifications.delete
+    - storage.objects.compose
+    - storage.objects.copy
+    - storage.objects.list
+    - storage.objects.rewrite
+    - storage.objects.watchAll
+    - storage.*AccessControls.delete
+    - storage.*.get
+    - storage.*.getIamPolicy
+    - storage.*.testIamPermissions
+    - storage.*AccessControls.list
+    - storage.notifications.list
+    - Each object notification
+    - storage.channels.stop
+    - storage.buckets.delete
+    - storage.objects.delete
+
+azure:
+    - Write operations:
+        - PutBlob
+        - PutBlock
+        - PutBlockList
+        - AppendBlock
+        - SnapshotBlob
+        - CopyBlob
+        - SetBlobTier (when it moves a Blob from Hot to Cool, Cool to Archive, or Hot to Archive)
+    - Read operations:
+        - GetBlob
+        - SetBlobTier (when it moves a Blob from Archive to Cool, Cool to Hot, or Archive to Hot)
+    - Operations available in Archive:
+        - GetBlobProperties
+        - GetBlobMetadata
+        - ListBlobs
+        - SetBlobTier
+        - DeleteBlob
+    - Create Container Operations
+    - Delete

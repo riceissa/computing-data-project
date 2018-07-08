@@ -9,45 +9,43 @@ s3 ops:
     - SELECT
 
 google storage (this is the JSON API; there is also an XML API):
-    - storage.*.insert
-    - storage.*.patch
-    - storage.*.update
-    - storage.*.setIamPolicy
-    - storage.buckets.list
-    - storage.notifications.delete
-    - storage.objects.compose
-    - storage.objects.copy
-    - storage.objects.list
-    - storage.objects.rewrite
-    - storage.objects.watchAll
-    - storage.*AccessControls.delete
-    - storage.*.get
-    - storage.*.getIamPolicy
-    - storage.*.testIamPermissions
-    - storage.*AccessControls.list
-    - storage.notifications.list
-    - Each object notification
-    - storage.channels.stop
-    - storage.buckets.delete
-    - storage.objects.delete
+    - storage.*.insert (class A)
+    - storage.*.patch (class A)
+    - storage.*.update (class A)
+    - storage.*.setIamPolicy (class A)
+    - storage.buckets.list (class A)
+    - storage.notifications.delete (class A)
+    - storage.objects.compose (class A)
+    - storage.objects.copy (class A)
+    - storage.objects.list (class A)
+    - storage.objects.rewrite (class A)
+    - storage.objects.watchAll (class A)
+    - storage.*AccessControls.delete (class A)
+    - storage.*.get (class B)
+    - storage.*.getIamPolicy (class B)
+    - storage.*.testIamPermissions (class B)
+    - storage.*AccessControls.list (class B)
+    - storage.notifications.list (class B)
+    - Each object notification (class B)
+    - storage.channels.stop (free)
+    - storage.buckets.delete (free)
+    - storage.objects.delete (free)
 
 azure:
-    - Write operations:
-        - PutBlob
-        - PutBlock
-        - PutBlockList
-        - AppendBlock
-        - SnapshotBlob
-        - CopyBlob
-        - SetBlobTier (when it moves a Blob from Hot to Cool, Cool to Archive, or Hot to Archive)
-    - Read operations:
-        - GetBlob
-        - SetBlobTier (when it moves a Blob from Archive to Cool, Cool to Hot, or Archive to Hot)
-    - Operations available in Archive:
-        - GetBlobProperties
-        - GetBlobMetadata
-        - ListBlobs
-        - SetBlobTier
-        - DeleteBlob
+    - PutBlob (write op)
+    - PutBlock (write op)
+    - PutBlockList (write op)
+    - AppendBlock (write op)
+    - SnapshotBlob (write op)
+    - CopyBlob (write op)
+    - SetBlobTier (when it moves a Blob from Hot to Cool, Cool to Archive, or Hot to Archive) (write op)
+    - GetBlob (read op)
+    - SetBlobTier (when it moves a Blob from Archive to Cool, Cool to Hot, or Archive to Hot) (read op)
+- Operations available in Archive: (read op)
+    - GetBlobProperties (read op)
+    - GetBlobMetadata (read op)
+    - ListBlobs (read op)
+    - SetBlobTier (read op)
+    - DeleteBlob (read op)
     - Create Container Operations
     - Delete

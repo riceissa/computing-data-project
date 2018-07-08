@@ -42,11 +42,12 @@ azure:
     - SetBlobTier (when it moves a Blob from Hot to Cool, Cool to Archive, or Hot to Archive) (write op)
     - GetBlob (read op)
     - SetBlobTier (when it moves a Blob from Archive to Cool, Cool to Hot, or Archive to Hot) (read op)
-- Operations available in Archive: (read op)
-    - GetBlobProperties (read op)
-    - GetBlobMetadata (read op)
-    - ListBlobs (read op)
-    - SetBlobTier (read op)
-    - DeleteBlob (read op)
-    - Create Container Operations
-    - Delete
+    - GetBlobProperties (valid in archive)
+    - GetBlobMetadata (valid in archive)
+    - ListBlobs (valid in archive)
+    - SetBlobTier (valid in archive)
+    - DeleteBlob (valid in archive)
+    - Create Container Operations (???)
+    - Delete (???)
+
+maybe more at https://docs.microsoft.com/en-us/rest/api/storageservices/operations-on-blobs

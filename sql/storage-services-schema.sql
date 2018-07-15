@@ -2,13 +2,27 @@ create table storage_plans (
     storage_plan_id int(11) not null auto_increment primary key,
 
     # Fields that make sense for both object and block storage
+    # ========================================================
     provider varchar(100),  # Storage provider, e.g. "Amazon S3", "Amazon EBS"
     name varchar(100),  # Name of the plan, e.g. "Azure Managed Disks P4"
     region varchar(100),  # https://azure.microsoft.com/en-us/pricing/details/managed-disks/ https://azure.microsoft.com/en-us/pricing/details/storage/blobs/
+
+    # The storage pricing plan as a string. If the plan is just a single rate,
+    # the format is a float, in dollars per GB per month. Otherwise it is a
+    # tiered plan and this should be a JSON list of lists, where the inner list
+    # is [bound, rate] for each tier (bound in TB, rate in dollars per GB per
+    # month). The bound on the final tier item is not used (as it the tier
+    # saying "everything above this point"), and can for clarity be null.
+    # Example: '[[50, 0.023], [500, 0.022], [null, 0.021]]'. The meaning of
+    # this is that from 0 to 50 TB, the rate is $0.023/GB; from 50 to 500 TB, the
+    # marginal storage costs $0.022/GB; and after 500 TB, the marginal storage
+    # costs $0.021/GB.
+    storage_plan varchar(1000),
+
     redundancy? # e.g. azure has LRS, ZRS, GRS, etc. https://azure.microsoft.com/en-us/pricing/details/storage/blobs/ https://azure.microsoft.com/en-us/pricing/details/managed-disks/
 
     # Fields that only make sense for object storage
-    storage_cost # in $/GB/month. This has to somehow accept tiered pricing like on s3 https://aws.amazon.com/s3/pricing/?nc=sn&loc=4 and https://azure.microsoft.com/en-us/pricing/details/storage/blobs/
+    # ==============================================
     download_cost # in $/GB. I think this is the same as "data retrival" https://azure.microsoft.com/en-us/pricing/details/storage/blobs/
     upload_cost? # in $/GB. I think this is the same as "data write" https://azure.microsoft.com/en-us/pricing/details/storage/blobs/
     # transfer_cost # waiting on this until we do network stuff. e.g. to another region https://azure.microsoft.com/en-us/pricing/details/storage/blobs/ This can depend on the region so it's actually a function...
@@ -20,9 +34,9 @@ create table storage_plans (
     retrieval_delay # units?
 
     # Fields that only make sense for block storage
+    # =============================================
     storage_type # SSD/HDD, etc.
     disk_size # in GB; google and amazon don't have fixed sizes
-    storage_cost # in $/GB/month? or $/month since we already have the disk_size? but google's disks seem to have flexible sizing so we don't know the size necessarily https://cloud.google.com/persistent-disk/
     iops_cost # cost for IOPS (input/output operations per second), in $/IOPS/month; see https://aws.amazon.com/ebs/pricing/
     iops # per disk https://azure.microsoft.com/en-us/pricing/details/managed-disks/
     iops_burst_performance # ??? https://aws.amazon.com/ebs/previous-generation/

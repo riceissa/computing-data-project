@@ -8,16 +8,17 @@ create table storage_plans (
     region varchar(100),  # https://azure.microsoft.com/en-us/pricing/details/managed-disks/ https://azure.microsoft.com/en-us/pricing/details/storage/blobs/
 
     # The storage pricing plan as a string. If the plan is just a single rate,
-    # the format is a float, in dollars per GB per month. Otherwise it is a
+    # the format is a float (as a string), in dollars per GB per month. Otherwise it is a
     # tiered plan and this should be a JSON list of lists, where the inner list
     # is [bound, rate] for each tier (bound in TB, rate in dollars per GB per
     # month). The bound on the final tier item is not used (as it the tier
-    # saying "everything above this point"), and can for clarity be null.
+    # saying "everything above the previous tier"), and can for clarity be null.
+    # The tiers must be ordered by the bound.
     # Example: '[[50, 0.023], [500, 0.022], [null, 0.021]]'. The meaning of
-    # this is that from 0 to 50 TB, the rate is $0.023/GB; from 50 to 500 TB, the
-    # marginal storage costs $0.022/GB; and after 500 TB, the marginal storage
-    # costs $0.021/GB.
-    storage_plan varchar(1000),
+    # this is that from 0 to 50 TB, the rate is $0.023/GB/month; from 50 to 500 TB, the
+    # marginal storage costs $0.022/GB/month; and after 500 TB, the marginal storage
+    # costs $0.021/GB/month.
+    storage_cost varchar(1000),
 
     redundancy? # e.g. azure has LRS, ZRS, GRS, etc. https://azure.microsoft.com/en-us/pricing/details/storage/blobs/ https://azure.microsoft.com/en-us/pricing/details/managed-disks/
 

@@ -1,5 +1,5 @@
 # Data from http://archive.today/2018.07.06-175634/https://www.linode.com/pricing
-insert into cloud_instances(service,date_observed,name,ram,cpu,storage_type,storage_size,cost) values
+insert into cloud_instances(provider,date_observed,name,ram,cpu,storage_type,storage_size,cost) values
     ('Linode','2018-07-06','Nanode 1GB',1,1,'SSD',25,0.0075)
     ,('Linode','2018-07-06','Linode 2GB',2,1,'SSD',50,0.015)
     ,('Linode','2018-07-06','Linode 4GB',4,2,'SSD',80,0.03)

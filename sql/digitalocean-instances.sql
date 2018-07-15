@@ -1,4 +1,4 @@
-insert into cloud_instances(service,date_observed,ram,cpu,storage_type,storage_size,cost) values
+insert into cloud_instances(provider,date_observed,ram,cpu,storage_type,storage_size,cost) values
     ('DigitalOcean','2018-07-06',1,1,'SSD',25,0.007)
     ,('DigitalOcean','2018-07-06',2,1,'SSD',50,0.015)
     ,('DigitalOcean','2018-07-06',3,1,'SSD',60,0.022)

@@ -2,7 +2,7 @@ create table cloud_instances (
     cloud_instance_id int(11) not null auto_increment primary key,
 
     # The computing provider, e.g. "Google Compute Engine", "Amazon EC2", "Linode"
-    service varchar(100),
+    provider varchar(100),
 
     # Optional name for the instance. A name might not completely specify the
     # specs of an instance, e.g. if the instance corresponding to the name

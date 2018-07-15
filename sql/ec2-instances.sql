@@ -1,5 +1,5 @@
 # Prices from commit 73514c58396c8e62944cd03380de387f69f29ca1
-insert into cloud_instances(service,name,ram,cpu,ecu,processor,network_throughput,storage_type,cost,date_observed,region,operating_system) values
+insert into cloud_instances(provider,name,ram,cpu,ecu,processor,network_throughput,storage_type,cost,date_observed,region,operating_system) values
     ('Amazon EC2','m1.small',1.7,1,NULL,NULL,NULL,'1 x 160 GB','0.044','2017-08-16','US East (N. Virginia)','Linux')
     ,('Amazon EC2','m1.medium',3.75,1,NULL,NULL,NULL,'1 x 410 GB','0.087','2017-08-16','US East (N. Virginia)','Linux')
     ,('Amazon EC2','m1.large',7.5,2,NULL,NULL,NULL,'2 x 420 GB','0.175','2017-08-16','US East (N. Virginia)','Linux')
@@ -82,7 +82,7 @@ insert into cloud_instances(service,name,ram,cpu,ecu,processor,network_throughpu
 ;
 
 # Prices from commit 61ce503ddb12ec38c752e2830e4b51e7714c2a91
-insert into cloud_instances(service,name,ram,cpu,ecu,processor,network_throughput,storage_type,cost,date_observed,region,operating_system) values
+insert into cloud_instances(provider,name,ram,cpu,ecu,processor,network_throughput,storage_type,cost,date_observed,region,operating_system) values
     ('Amazon EC2','m1.small',1.7,1,NULL,NULL,NULL,'1 x 160 GB','0.044','2017-05-19','US East (N. Virginia)','Linux')
     ,('Amazon EC2','m1.medium',3.75,1,NULL,NULL,NULL,'1 x 410 GB','0.087','2017-05-19','US East (N. Virginia)','Linux')
     ,('Amazon EC2','m1.large',7.5,2,NULL,NULL,NULL,'2 x 420 GB','0.175','2017-05-19','US East (N. Virginia)','Linux')
@@ -162,7 +162,7 @@ insert into cloud_instances(service,name,ram,cpu,ecu,processor,network_throughpu
 ;
 
 # Prices from commit ecf40cd41fdf71679ecc20fbc142afccaeafdc2d
-insert into cloud_instances(service,name,ram,cpu,ecu,processor,network_throughput,storage_type,cost,date_observed,region,operating_system) values
+insert into cloud_instances(provider,name,ram,cpu,ecu,processor,network_throughput,storage_type,cost,date_observed,region,operating_system) values
     ('Amazon EC2','m1.small',1.7,1,NULL,NULL,NULL,'1 x 160 GB','0.044','2017-03-04','US East (N. Virginia)','Linux')
     ,('Amazon EC2','m1.medium',3.75,1,NULL,NULL,NULL,'1 x 410 GB','0.087','2017-03-04','US East (N. Virginia)','Linux')
     ,('Amazon EC2','m1.large',7.5,2,NULL,NULL,NULL,'2 x 420 GB','0.175','2017-03-04','US East (N. Virginia)','Linux')
@@ -240,7 +240,7 @@ insert into cloud_instances(service,name,ram,cpu,ecu,processor,network_throughpu
 ;
 
 # Prices from commit b873303f45060e6003a2a67fda2b93cbd815d48d
-insert into cloud_instances(service,name,ram,cpu,ecu,processor,network_throughput,storage_type,cost,date_observed,region,operating_system) values
+insert into cloud_instances(provider,name,ram,cpu,ecu,processor,network_throughput,storage_type,cost,date_observed,region,operating_system) values
     ('Amazon EC2','m1.small',1.7,1,NULL,NULL,NULL,'1 x 160 GB','0.044','2016-12-14','US East (N. Virginia)','Linux')
     ,('Amazon EC2','m1.medium',3.75,1,NULL,NULL,NULL,'1 x 410 GB','0.087','2016-12-14','US East (N. Virginia)','Linux')
     ,('Amazon EC2','m1.large',7.5,2,NULL,NULL,NULL,'2 x 420 GB','0.175','2016-12-14','US East (N. Virginia)','Linux')
@@ -312,7 +312,7 @@ insert into cloud_instances(service,name,ram,cpu,ecu,processor,network_throughpu
 ;
 
 # Prices from commit 50db1b426f24b296907d7b272260ba78ba7fe946
-insert into cloud_instances(service,name,ram,cpu,ecu,processor,network_throughput,storage_type,cost,date_observed,region,operating_system) values
+insert into cloud_instances(provider,name,ram,cpu,ecu,processor,network_throughput,storage_type,cost,date_observed,region,operating_system) values
     ('Amazon EC2','m1.small',1.7,1,NULL,NULL,NULL,'1 x 160 GB','0.044','2016-09-11','US East (N. Virginia)','Linux')
     ,('Amazon EC2','m1.medium',3.75,1,NULL,NULL,NULL,'1 x 410 GB','0.087','2016-09-11','US East (N. Virginia)','Linux')
     ,('Amazon EC2','m1.large',7.5,2,NULL,NULL,NULL,'2 x 420 GB','0.175','2016-09-11','US East (N. Virginia)','Linux')
@@ -371,7 +371,7 @@ insert into cloud_instances(service,name,ram,cpu,ecu,processor,network_throughpu
 ;
 
 # Prices from commit 2a76f472c30d1481b3367122599fd54365555e44
-insert into cloud_instances(service,name,ram,cpu,ecu,processor,network_throughput,storage_type,cost,date_observed,region,operating_system) values
+insert into cloud_instances(provider,name,ram,cpu,ecu,processor,network_throughput,storage_type,cost,date_observed,region,operating_system) values
     ('Amazon EC2','m1.small',1.7,1,NULL,NULL,NULL,'1 x 160 GB','0.044','2016-06-05','US East (N. Virginia)','Linux')
     ,('Amazon EC2','m1.medium',3.75,1,NULL,NULL,NULL,'1 x 410 GB','0.087','2016-06-05','US East (N. Virginia)','Linux')
     ,('Amazon EC2','m1.large',7.5,2,NULL,NULL,NULL,'2 x 420 GB','0.175','2016-06-05','US East (N. Virginia)','Linux')
@@ -430,7 +430,7 @@ insert into cloud_instances(service,name,ram,cpu,ecu,processor,network_throughpu
 ;
 
 # Prices from commit bc0d2a7ecab0a8e8bb363749ed8eeca320c1b0d2
-insert into cloud_instances(service,name,ram,cpu,ecu,processor,network_throughput,storage_type,cost,date_observed,region,operating_system) values
+insert into cloud_instances(provider,name,ram,cpu,ecu,processor,network_throughput,storage_type,cost,date_observed,region,operating_system) values
     ('Amazon EC2','m1.small',1.7,1,NULL,NULL,NULL,'1 x 160 GB','0.044','2016-03-05','US East (N. Virginia)','Linux')
     ,('Amazon EC2','m1.medium',3.75,1,NULL,NULL,NULL,'1 x 410 GB','0.087','2016-03-05','US East (N. Virginia)','Linux')
     ,('Amazon EC2','m1.large',7.5,2,NULL,NULL,NULL,'2 x 420 GB','0.175','2016-03-05','US East (N. Virginia)','Linux')
@@ -488,7 +488,7 @@ insert into cloud_instances(service,name,ram,cpu,ecu,processor,network_throughpu
 ;
 
 # Prices from commit 8c7f9869bb3cca22536a030adc826decfb147112
-insert into cloud_instances(service,name,ram,cpu,ecu,processor,network_throughput,storage_type,cost,date_observed,region,operating_system) values
+insert into cloud_instances(provider,name,ram,cpu,ecu,processor,network_throughput,storage_type,cost,date_observed,region,operating_system) values
     ('Amazon EC2','m1.small',1.7,1,NULL,NULL,NULL,'1 x 160 GB','0.044','2015-11-07','US East (N. Virginia)','Linux')
     ,('Amazon EC2','m1.medium',3.75,1,NULL,NULL,NULL,'1 x 410 GB','0.087','2015-11-07','US East (N. Virginia)','Linux')
     ,('Amazon EC2','m1.large',7.5,2,NULL,NULL,NULL,'2 x 420 GB','0.175','2015-11-07','US East (N. Virginia)','Linux')
@@ -545,7 +545,7 @@ insert into cloud_instances(service,name,ram,cpu,ecu,processor,network_throughpu
 ;
 
 # Prices from commit 0c88a0b8d173dcff39d6434ead2f6aeda9b9aaff
-insert into cloud_instances(service,name,ram,cpu,ecu,processor,network_throughput,storage_type,cost,date_observed,region,operating_system) values
+insert into cloud_instances(provider,name,ram,cpu,ecu,processor,network_throughput,storage_type,cost,date_observed,region,operating_system) values
     ('Amazon EC2','m1.small',1.7,1,NULL,NULL,NULL,'1 x 160 GB','0.044','2015-08-25','US East (N. Virginia)','Linux')
     ,('Amazon EC2','m1.medium',3.75,1,NULL,NULL,NULL,'1 x 410 GB','0.087','2015-08-25','US East (N. Virginia)','Linux')
     ,('Amazon EC2','m1.large',7.5,2,NULL,NULL,NULL,'2 x 420 GB','0.175','2015-08-25','US East (N. Virginia)','Linux')
@@ -602,7 +602,7 @@ insert into cloud_instances(service,name,ram,cpu,ecu,processor,network_throughpu
 ;
 
 # Prices from commit a97b56487bc54bc7d7c260e6abe5bf2d0be4e874
-insert into cloud_instances(service,name,ram,cpu,ecu,processor,network_throughput,storage_type,cost,date_observed,region,operating_system) values
+insert into cloud_instances(provider,name,ram,cpu,ecu,processor,network_throughput,storage_type,cost,date_observed,region,operating_system) values
     ('Amazon EC2','m1.small',1.7,1,NULL,NULL,NULL,'1 x 160 GB','0.044','2015-06-03','US East (N. Virginia)','Linux')
     ,('Amazon EC2','m1.medium',3.75,1,NULL,NULL,NULL,'1 x 410 GB','0.087','2015-06-03','US East (N. Virginia)','Linux')
     ,('Amazon EC2','m1.large',7.5,2,NULL,NULL,NULL,'2 x 420 GB','0.175','2015-06-03','US East (N. Virginia)','Linux')
@@ -653,7 +653,7 @@ insert into cloud_instances(service,name,ram,cpu,ecu,processor,network_throughpu
 ;
 
 # Prices from commit 438726541846d7fe4bd90d0857eee196f9a7a03b
-insert into cloud_instances(service,name,ram,cpu,ecu,processor,network_throughput,storage_type,cost,date_observed,region,operating_system) values
+insert into cloud_instances(provider,name,ram,cpu,ecu,processor,network_throughput,storage_type,cost,date_observed,region,operating_system) values
     ('Amazon EC2','m1.small',1.7,1,NULL,NULL,NULL,'1 x 160 GB','0.044','2015-02-03','US East (N. Virginia)','Linux')
     ,('Amazon EC2','m1.medium',3.75,1,NULL,NULL,NULL,'1 x 410 GB','0.087','2015-02-03','US East (N. Virginia)','Linux')
     ,('Amazon EC2','m1.large',7.5,2,NULL,NULL,NULL,'2 x 420 GB','0.175','2015-02-03','US East (N. Virginia)','Linux')
@@ -699,7 +699,7 @@ insert into cloud_instances(service,name,ram,cpu,ecu,processor,network_throughpu
 ;
 
 # Prices from commit c388e1e9e7bca568bf9da08ea0d3a63c8f627495
-insert into cloud_instances(service,name,ram,cpu,ecu,processor,network_throughput,storage_type,cost,date_observed,region,operating_system) values
+insert into cloud_instances(provider,name,ram,cpu,ecu,processor,network_throughput,storage_type,cost,date_observed,region,operating_system) values
     ('Amazon EC2','m1.small',1.7,1,NULL,NULL,NULL,'1 x 160 GB','0.044','2014-12-07','US East (N. Virginia)','Linux')
     ,('Amazon EC2','m1.medium',3.75,1,NULL,NULL,NULL,'1 x 410 GB','0.087','2014-12-07','US East (N. Virginia)','Linux')
     ,('Amazon EC2','m1.large',7.5,2,NULL,NULL,NULL,'2 x 420 GB','0.175','2014-12-07','US East (N. Virginia)','Linux')
@@ -740,7 +740,7 @@ insert into cloud_instances(service,name,ram,cpu,ecu,processor,network_throughpu
 ;
 
 # Prices from commit e02c7ba0dde0c7ab21dd21a3c0d4313e0b93450b
-insert into cloud_instances(service,name,ram,cpu,ecu,processor,network_throughput,storage_type,cost,date_observed,region,operating_system) values
+insert into cloud_instances(provider,name,ram,cpu,ecu,processor,network_throughput,storage_type,cost,date_observed,region,operating_system) values
     ('Amazon EC2','m1.small',1.7,1,NULL,NULL,NULL,'1 x 160 GB','0.044','2014-07-27','US East (N. Virginia)','Linux')
     ,('Amazon EC2','m1.medium',3.75,1,NULL,NULL,NULL,'1 x 410 GB','0.087','2014-07-27','US East (N. Virginia)','Linux')
     ,('Amazon EC2','m1.large',7.5,2,NULL,NULL,NULL,'2 x 420 GB','0.175','2014-07-27','US East (N. Virginia)','Linux')
@@ -781,7 +781,7 @@ insert into cloud_instances(service,name,ram,cpu,ecu,processor,network_throughpu
 ;
 
 # Prices from commit 77bff1e5765c10658e749757ed61381fad6ccc67
-insert into cloud_instances(service,name,ram,cpu,ecu,processor,network_throughput,storage_type,cost,date_observed,region,operating_system) values
+insert into cloud_instances(provider,name,ram,cpu,ecu,processor,network_throughput,storage_type,cost,date_observed,region,operating_system) values
     ('Amazon EC2','m3.medium',3.75,1,3,NULL,NULL,'1 x 4 SSD','0.113','2014-04-20','US East (N. Virginia)','Linux')
     ,('Amazon EC2','m3.large',7.5,2,6.5,NULL,NULL,'1 x 32 SSD','0.225','2014-04-20','US East (N. Virginia)','Linux')
     ,('Amazon EC2','m3.xlarge',15,4,13,NULL,NULL,'2 x 40 SSD','0.450','2014-04-20','US East (N. Virginia)','Linux')
@@ -814,7 +814,7 @@ insert into cloud_instances(service,name,ram,cpu,ecu,processor,network_throughpu
 ;
 
 # Prices from commit ea75e42e74edde59f5ecf6fe92921a92889fc45b
-insert into cloud_instances(service,name,ram,cpu,ecu,processor,network_throughput,storage_type,cost,date_observed,region,operating_system) values
+insert into cloud_instances(provider,name,ram,cpu,ecu,processor,network_throughput,storage_type,cost,date_observed,region,operating_system) values
     ('Amazon EC2','m3.medium',3.75,1,3,NULL,NULL,'1 x 4 SSD','0.113','2014-03-02','US East (N. Virginia)','Linux')
     ,('Amazon EC2','m3.large',7.5,2,6.5,NULL,NULL,'1 x 32 SSD','0.225','2014-03-02','US East (N. Virginia)','Linux')
     ,('Amazon EC2','m3.xlarge',15,4,13,NULL,NULL,'2 x 40 SSD','0.450','2014-03-02','US East (N. Virginia)','Linux')
@@ -847,7 +847,7 @@ insert into cloud_instances(service,name,ram,cpu,ecu,processor,network_throughpu
 ;
 
 # Prices from commit 5e23ecfaf253d46e3379476100db4d7d886e0787
-insert into cloud_instances(service,name,ram,cpu,ecu,processor,network_throughput,storage_type,cost,date_observed,region,operating_system) values
+insert into cloud_instances(provider,name,ram,cpu,ecu,processor,network_throughput,storage_type,cost,date_observed,region,operating_system) values
     ('Amazon EC2','m1.small',1.7,1,NULL,NULL,NULL,'1 x 160 GB','0.060','2013-12-02','US East (N. Virginia)','Linux')
     ,('Amazon EC2','m1.medium',3.75,1,NULL,NULL,NULL,'1 x 410 GB','0.12','2013-12-02','US East (N. Virginia)','Linux')
     ,('Amazon EC2','m1.large',7.5,2,NULL,NULL,NULL,'2 x 420 GB','0.24','2013-12-02','US East (N. Virginia)','Linux')
@@ -875,7 +875,7 @@ insert into cloud_instances(service,name,ram,cpu,ecu,processor,network_throughpu
 ;
 
 # Prices from commit 6c63842d4821b885c95ff6a2219cd12c8e2e4b42
-insert into cloud_instances(service,name,ram,cpu,ecu,processor,network_throughput,storage_type,cost,date_observed,region,operating_system) values
+insert into cloud_instances(provider,name,ram,cpu,ecu,processor,network_throughput,storage_type,cost,date_observed,region,operating_system) values
     ('Amazon EC2','m1.small',1.7,1,NULL,NULL,NULL,'1 x 160 GB','0.060','2013-09-09','US East (N. Virginia)','Linux')
     ,('Amazon EC2','m1.medium',3.75,1,NULL,NULL,NULL,'1 x 410 GB','0.12','2013-09-09','US East (N. Virginia)','Linux')
     ,('Amazon EC2','m1.large',7.5,2,NULL,NULL,NULL,'2 x 420 GB','0.24','2013-09-09','US East (N. Virginia)','Linux')
@@ -897,7 +897,7 @@ insert into cloud_instances(service,name,ram,cpu,ecu,processor,network_throughpu
 ;
 
 # Prices from commit 63cf78ce2d251d52d23e0b2c7a118110b7a91497
-insert into cloud_instances(service,name,ram,cpu,ecu,processor,network_throughput,storage_type,cost,date_observed,region,operating_system) values
+insert into cloud_instances(provider,name,ram,cpu,ecu,processor,network_throughput,storage_type,cost,date_observed,region,operating_system) values
     ('Amazon EC2','m1.small',1.7,1,NULL,NULL,NULL,'1 x 160 GB','0.060','2013-07-19','US East (N. Virginia)','Linux')
     ,('Amazon EC2','m1.medium',3.75,1,NULL,NULL,NULL,'1 x 410 GB','0.12','2013-07-19','US East (N. Virginia)','Linux')
     ,('Amazon EC2','m1.large',7.5,2,NULL,NULL,NULL,'2 x 420 GB','0.24','2013-07-19','US East (N. Virginia)','Linux')
@@ -919,7 +919,7 @@ insert into cloud_instances(service,name,ram,cpu,ecu,processor,network_throughpu
 ;
 
 # Prices from commit d6ef73ce9cf5ecb2ee0dc9f44d6df1c3bcdc8dd3
-insert into cloud_instances(service,name,ram,cpu,ecu,processor,network_throughput,storage_type,cost,date_observed,region,operating_system) values
+insert into cloud_instances(provider,name,ram,cpu,ecu,processor,network_throughput,storage_type,cost,date_observed,region,operating_system) values
     ('Amazon EC2','m1.small',1.7,1,NULL,NULL,NULL,'1 x 160 GB','0.060','2013-02-09','US East (N. Virginia)','Linux')
     ,('Amazon EC2','m1.medium',3.75,1,NULL,NULL,NULL,'1 x 410 GB','0.12','2013-02-09','US East (N. Virginia)','Linux')
     ,('Amazon EC2','m1.large',7.5,2,NULL,NULL,NULL,'2 x 420 GB','0.24','2013-02-09','US East (N. Virginia)','Linux')
@@ -941,7 +941,7 @@ insert into cloud_instances(service,name,ram,cpu,ecu,processor,network_throughpu
 ;
 
 # Prices from commit 9df4ae52538c541be57b3f56beb3e4988213220c
-insert into cloud_instances(service,name,ram,cpu,ecu,processor,network_throughput,storage_type,cost,date_observed,region,operating_system) values
+insert into cloud_instances(provider,name,ram,cpu,ecu,processor,network_throughput,storage_type,cost,date_observed,region,operating_system) values
     ('Amazon EC2','m1.small',1.7,1,NULL,NULL,NULL,'1 x 160 GB','0.065','2012-12-21','US East (N. Virginia)','Linux')
     ,('Amazon EC2','m1.medium',3.75,1,NULL,NULL,NULL,'1 x 410 GB','0.13','2012-12-21','US East (N. Virginia)','Linux')
     ,('Amazon EC2','m1.large',7.5,2,NULL,NULL,NULL,'2 x 420 GB','0.26','2012-12-21','US East (N. Virginia)','Linux')
@@ -962,7 +962,7 @@ insert into cloud_instances(service,name,ram,cpu,ecu,processor,network_throughpu
 ;
 
 # Prices from commit c7faa70b7da12af21bc2b8b688236c0b49c79288
-insert into cloud_instances(service,name,ram,cpu,ecu,processor,network_throughput,storage_type,cost,date_observed,region,operating_system) values
+insert into cloud_instances(provider,name,ram,cpu,ecu,processor,network_throughput,storage_type,cost,date_observed,region,operating_system) values
     ('Amazon EC2','m1.small',1.7,1,NULL,NULL,NULL,'1 x 160 GB','0.08','2012-07-19','US East (N. Virginia)','Linux')
     ,('Amazon EC2','m1.medium',3.75,1,NULL,NULL,NULL,'1 x 410 GB','0.16','2012-07-19','US East (N. Virginia)','Linux')
     ,('Amazon EC2','m1.large',7.5,2,NULL,NULL,NULL,'2 x 420 GB','0.32','2012-07-19','US East (N. Virginia)','Linux')
@@ -980,7 +980,7 @@ insert into cloud_instances(service,name,ram,cpu,ecu,processor,network_throughpu
 ;
 
 # Prices from commit ef7cbbf2a06da7f2296da1e18ceff8441548ee49
-insert into cloud_instances(service,name,ram,cpu,ecu,processor,network_throughput,storage_type,cost,date_observed,region,operating_system) values
+insert into cloud_instances(provider,name,ram,cpu,ecu,processor,network_throughput,storage_type,cost,date_observed,region,operating_system) values
     ('Amazon EC2','m1.small',1.7,1,NULL,NULL,NULL,'1 x 160 GB','0.08','2012-03-08','US East (N. Virginia)','Linux')
     ,('Amazon EC2','m1.medium',3.75,1,NULL,NULL,NULL,'1 x 410 GB','0.16','2012-03-08','US East (N. Virginia)','Linux')
     ,('Amazon EC2','m1.large',7.5,2,NULL,NULL,NULL,'2 x 420 GB','0.32','2012-03-08','US East (N. Virginia)','Linux')
@@ -997,7 +997,7 @@ insert into cloud_instances(service,name,ram,cpu,ecu,processor,network_throughpu
 ;
 
 # Prices from commit 3a61bbd527963fe9f692c3f4c4e72a6256fb78e0
-insert into cloud_instances(service,name,ram,cpu,ecu,processor,network_throughput,storage_type,cost,date_observed,region,operating_system) values
+insert into cloud_instances(provider,name,ram,cpu,ecu,processor,network_throughput,storage_type,cost,date_observed,region,operating_system) values
     ('Amazon EC2','m1.small',1.7,1,NULL,NULL,NULL,'1 x 160 GB','0.085','2011-11-06','US East (N. Virginia)','Linux')
     ,('Amazon EC2','m1.large',7.5,2,NULL,NULL,NULL,'2 x 420 GB','0.34','2011-11-06','US East (N. Virginia)','Linux')
     ,('Amazon EC2','m1.xlarge',15,4,NULL,NULL,NULL,'4 x 420 GB','0.68','2011-11-06','US East (N. Virginia)','Linux')

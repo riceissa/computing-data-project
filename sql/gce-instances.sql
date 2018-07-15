@@ -1,4 +1,4 @@
-insert into cloud_instances(service,date_observed,region,name,cpu,ram,cost) values
+insert into cloud_instances(provider,date_observed,region,name,cpu,ram,cost) values
     ('Google Compute Engine','2018-07-06','us-central1','n1-standard-1',1,3.75,0.0475)
     ,('Google Compute Engine','2018-07-06','us-central1','n1-standard-2',2,7.5,0.0950)
     ,('Google Compute Engine','2018-07-06','us-central1','n1-standard-4',4,15,0.1900)

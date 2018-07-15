@@ -245,7 +245,7 @@ def print_sql(commit):
 
     print("""# Prices from commit {}""".format(commit))
 
-    print("""insert into cloud_instances(service,name,ram,cpu,ecu,processor,network_throughput,storage_type,cost,date_observed,region,operating_system) values""")
+    print("""insert into cloud_instances(provider,name,ram,cpu,ecu,processor,network_throughput,storage_type,cost,date_observed,region,operating_system) values""")
 
     table = soup.find("table")
     first = True

@@ -4,9 +4,10 @@ create table storage_plans (
     # Fields that make sense for both object and block storage
     provider varchar(100),  # Storage provider, e.g. "Amazon S3", "Amazon EBS"
     name varchar(100),  # Name of the plan, e.g. "Azure Managed Disks P4"
-    region # https://azure.microsoft.com/en-us/pricing/details/managed-disks/ https://azure.microsoft.com/en-us/pricing/details/storage/blobs/
+    region varchar(100),  # https://azure.microsoft.com/en-us/pricing/details/managed-disks/ https://azure.microsoft.com/en-us/pricing/details/storage/blobs/
+    redundancy? # e.g. azure has LRS, ZRS, GRS, etc. https://azure.microsoft.com/en-us/pricing/details/storage/blobs/ https://azure.microsoft.com/en-us/pricing/details/managed-disks/
 
-    # potential fields (from object storage):
+    # Fields that only make sense for object storage
     storage_cost # in $/GB/month. This has to somehow accept tiered pricing like on s3 https://aws.amazon.com/s3/pricing/?nc=sn&loc=4 and https://azure.microsoft.com/en-us/pricing/details/storage/blobs/
     download_cost # in $/GB. I think this is the same as "data retrival" https://azure.microsoft.com/en-us/pricing/details/storage/blobs/
     upload_cost? # in $/GB. I think this is the same as "data write" https://azure.microsoft.com/en-us/pricing/details/storage/blobs/
@@ -17,9 +18,8 @@ create table storage_plans (
     delete_op_cost # in $/10000 or $/1000
     minimum_duration # units?
     retrieval_delay # units?
-    redundancy? # e.g. azure has LRS, ZRS, etc. https://azure.microsoft.com/en-us/pricing/details/storage/blobs/
 
-    # potential fields (from block storage):
+    # Fields that only make sense for block storage
     storage_type # SSD/HDD, etc.
     disk_size # in GB; google and amazon don't have fixed sizes
     storage_cost # in $/GB/month? or $/month since we already have the disk_size? but google's disks seem to have flexible sizing so we don't know the size necessarily https://cloud.google.com/persistent-disk/
@@ -32,7 +32,6 @@ create table storage_plans (
     io_cost # in $/(million ops). It looks like EBS prev gen didn't use IOPS for pricing https://aws.amazon.com/ebs/previous-generation/
     minimum_volume_size # in GB; google's local SSD provisioned space has 375GB minimum https://cloud.google.com/persistent-disk/
     maximum_volume_size # in GB; https://www.linode.com/blockstorage
-    redundancy? # e.g. azure has LRS, ZRS, GRS, etc. https://azure.microsoft.com/en-us/pricing/details/managed-disks/
     snapshot # a boolean to track whether this is snapshot storage?
 
 

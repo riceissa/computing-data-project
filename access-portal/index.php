@@ -16,6 +16,7 @@
     <?php include_once("style.inc"); ?>
   </head>
   <body>
+    <?php include_once("navbar.inc"); ?>
     <?php include("backend/list_instances.inc"); ?>
     <script>
         $(function(){$("table").tablesorter();});

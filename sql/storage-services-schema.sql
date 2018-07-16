@@ -7,6 +7,10 @@ create table storage_plans (
     name varchar(100),  # Name of the plan, e.g. "Azure Managed Disks P4"
     region varchar(100),  # https://azure.microsoft.com/en-us/pricing/details/managed-disks/ https://azure.microsoft.com/en-us/pricing/details/storage/blobs/
 
+    # This is the date for which the specs and pricing are valid, not the date
+    # on which the data was entered
+    date_observed date,
+
     # The storage pricing plan as a string. If the plan is just a single rate,
     # the format is a float (as a string), in dollars per GB per month. Otherwise it is a
     # tiered plan and this should be a JSON list of lists, where the inner list
@@ -20,34 +24,32 @@ create table storage_plans (
     # costs $0.021/GB/month.
     storage_cost varchar(1000),
 
-    redundancy? # e.g. azure has LRS, ZRS, GRS, etc. https://azure.microsoft.com/en-us/pricing/details/storage/blobs/ https://azure.microsoft.com/en-us/pricing/details/managed-disks/
+    redundancy varchar(100), # e.g. azure has LRS, ZRS, GRS, etc. https://azure.microsoft.com/en-us/pricing/details/storage/blobs/ https://azure.microsoft.com/en-us/pricing/details/managed-disks/
 
     # Fields that only make sense for object storage
     # ==============================================
-    download_cost # in $/GB. I think this is the same as "data retrival" https://azure.microsoft.com/en-us/pricing/details/storage/blobs/
-    upload_cost? # in $/GB. I think this is the same as "data write" https://azure.microsoft.com/en-us/pricing/details/storage/blobs/
+    download_cost float(7,5), # In $/GB. This is called "data retrival" by some providers.
+    upload_cost float(7,5), # in $/GB. I think this is the same as "data write" https://azure.microsoft.com/en-us/pricing/details/storage/blobs/
     # transfer_cost # waiting on this until we do network stuff. e.g. to another region https://azure.microsoft.com/en-us/pricing/details/storage/blobs/ This can depend on the region so it's actually a function...
-    write_op_cost # in $/10000 or $/1000
-    read_op_cost # in $/10000 or $/1000
-    list_op_cost # in $/10000 or $/1000
-    delete_op_cost # in $/10000 or $/1000
-    minimum_duration # units?
-    retrieval_delay # units?
+    write_op_cost float(7,5),  # in dollars per 1,000 requests
+    read_op_cost float(7,5),  # in dollars per 1,000 requests
+    list_op_cost float(7,5),  # in dollars per 1,000 requests
+    delete_op_cost float(7,5),  # in dollars per 1,000 requests
+    minimum_duration float(4,2),  # in months
+    retrieval_delay float(4,2),  # units?
 
     # Fields that only make sense for block storage
     # =============================================
-    storage_type # SSD/HDD, etc.
-    disk_size # in GB; google and amazon don't have fixed sizes
-    iops_cost # cost for IOPS (input/output operations per second), in $/IOPS/month; see https://aws.amazon.com/ebs/pricing/
-    iops # per disk https://azure.microsoft.com/en-us/pricing/details/managed-disks/
-    iops_burst_performance # ??? https://aws.amazon.com/ebs/previous-generation/
-    throughput # per disk, in MB/second https://azure.microsoft.com/en-us/pricing/details/managed-disks/
-    throughput_burst_performance # ??? https://aws.amazon.com/ebs/previous-generation/
-    throughput_instance # throughput per instance; EBS previous gen has both this and throughput per disk https://aws.amazon.com/ebs/previous-generation/
-    io_cost # in $/(million ops). It looks like EBS prev gen didn't use IOPS for pricing https://aws.amazon.com/ebs/previous-generation/
-    minimum_volume_size # in GB; google's local SSD provisioned space has 375GB minimum https://cloud.google.com/persistent-disk/
-    maximum_volume_size # in GB; https://www.linode.com/blockstorage
-    snapshot # a boolean to track whether this is snapshot storage?
-
-
+    storage_type varchar(100),  # SSD/HDD, etc.
+    disk_size float(6,1),  # in GB; google and amazon don't have fixed sizes
+    iops_cost float(7,5),  # cost for IOPS (input/output operations per second), in $/IOPS/month; see https://aws.amazon.com/ebs/pricing/
+    iops float(7,2),  # per disk https://azure.microsoft.com/en-us/pricing/details/managed-disks/
+    # iops_burst_performance # ??? https://aws.amazon.com/ebs/previous-generation/
+    throughput float(7,5),  # per disk, in MB/second https://azure.microsoft.com/en-us/pricing/details/managed-disks/
+    # throughput_burst_performance # ??? https://aws.amazon.com/ebs/previous-generation/
+    # throughput_instance # throughput per instance; EBS previous gen has both this and throughput per disk https://aws.amazon.com/ebs/previous-generation/
+    io_cost float(7,5),  # in $/(million ops). It looks like EBS prev gen didn't use IOPS for pricing https://aws.amazon.com/ebs/previous-generation/
+    minimum_volume_size float(7,5),  # in GB; google's local SSD provisioned space has 375GB minimum https://cloud.google.com/persistent-disk/
+    maximum_volume_size float(7,5),  # in GB; https://www.linode.com/blockstorage
+    snapshot bool  # a boolean to track whether this is snapshot storage?
 ) ENGINE=InnoDB AUTO_INCREMENT=15239276 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;

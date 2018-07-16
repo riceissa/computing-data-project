@@ -12,6 +12,11 @@
   } else {
     $storageDownloaded = 0;
   }
+  if ($_REQUEST['read_ops'] ?? '') {
+    $readOps = floatval($_REQUEST['read_ops']);
+  } else {
+    $readOps = 0;
+  }
   if ($_REQUEST['provider_filter'] ?? '') {
     $query .= " and provider regexp ?";
     $param_str .= "s";
@@ -66,13 +71,17 @@
     return $total;
   }
 
-  function calculateDownloadCost($storageDownloaded, $pricingSchedule,
+  function calculateSplitCost($amount, $pricingSchedule,
                                  $expedited = 0, $standard = 0, $bulk = 0) {
-    if ($storageDownloaded <= 0) {
-      return $pricingSchedule;
+    if ($amount <= 0) {
+      if (is_numeric($pricingSchedule)) {
+        return $pricingSchedule;
+      }
+      $j = json_decode($pricingSchedule, true);
+      return "Expedited: {$j['Expedited']}<br />Standard: {$j['Standard']}<br />Bulk: {$j['Bulk']}";
     }
     if (is_numeric($pricingSchedule)) {
-      return $storageDownloaded * floatval($pricingSchedule);
+      return $amount * floatval($pricingSchedule);
     }
     // Otherwise, we have a JSON like
     // {"Expedited": 0.03, "Standard": 0.01, "Bulk": 0.0025}
@@ -88,6 +97,7 @@ the site. The parameters you can use in the URL:
 
 * storage_size - storage size you intend to use in GB
 * download_size - the amount of data downloaded/retrieved in GB
+* read_ops - number of read-like operations in thousands
 * provider_filter - filter the provider name using a regex
 </pre>
 
@@ -101,7 +111,7 @@ the site. The parameters you can use in the URL:
       <th>Storage cost (dollars<?= $storageUsed <= 0 ? " per GB" : "" ?> per month)</th>
       <th>Download cost (dollars<?= $storageDownloaded <=0 ? " per GB" : "" ?>, excludes transfer cost)</th>
       <th>Write op cost (dollars per 1,000 requests)</th>
-      <th>Read op cost (dollars per 1,000 requests)</th>
+      <th>Read op cost (dollars<?= $readOps <= 0 ? " per 1,000 requests" : "" ?>)</th>
       <th>List op cost (dollars per 1,000 requests)</th>
       <th>Delete op cost (dollars per 1,000 requests)</th>
       <th>Minimum duration (months)</th>
@@ -115,9 +125,9 @@ the site. The parameters you can use in the URL:
         <td><?= $row['region'] ?></td>
         <td><?= $row['date_observed'] ?></td>
         <td style="text-align: right;"><?= calculateStorageCost($storageUsed, $row['storage_cost']) ?></td>
-        <td style="text-align: right;"><?= calculateDownloadCost($storageDownloaded, $row['download_cost'], 0, 0, $storageDownloaded) ?></td>
+        <td style="text-align: right;"><?= calculateSplitCost($storageDownloaded, $row['download_cost'], 0, 0, $storageDownloaded) ?></td>
         <td style="text-align: right;"><?= $row['write_op_cost'] ?></td>
-        <td style="text-align: right;"><?= $row['read_op_cost'] ?></td>
+        <td style="text-align: right;"><?= calculateSplitCost($readOps, $row['read_op_cost'], 0, 0, $readOps) ?></td>
         <td style="text-align: right;"><?= $row['list_op_cost'] ?></td>
         <td style="text-align: right;"><?= $row['delete_op_cost'] ?></td>
         <td style="text-align: right;"><?= $row['minimum_duration'] ?></td>

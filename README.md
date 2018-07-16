@@ -11,6 +11,24 @@ mysql -e "create database computingdata"
 make read  # read in data from sql directory
 ```
 
+If MySQL needs credentials, one way to avoid entering the password each time is
+to create a file named `my.cnf` with the following contents:
+
+```
+[client]
+user=YOURNAME
+password=SECRET
+```
+
+(Maybe change the permissions on the file.)
+
+Now when you run a MySQL command, you can pass `--defaults-extra-file=my.cnf`.
+For example:
+
+```bash
+make read MYSQL_ARGS="--defaults-extra-file=my.cnf"
+```
+
 Now set up the password file to allow PHP to log in to the database:
 
 ```bash

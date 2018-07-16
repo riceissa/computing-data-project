@@ -1,8 +1,8 @@
 <?php
 $menu_items = array(
-  '<a href="/">Home</a>',
+  '<a href="./index.php">Home</a>',
   'About (forthcoming)',
-  '<a href="/storage.php">Storage</a>'
+  '<a href="./storage.php">Storage</a>'
 );
 ?>
 <nav>

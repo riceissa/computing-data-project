@@ -21,6 +21,24 @@
   }
 
   function calculateStorageCost($storageUsed, $pricingSchedule) {
+    if ($storageUsed <= 0) {
+      if (($fv = floatval($pricingSchedule)) > 0) {
+        return $fv;
+      }
+      $pricingExplained = "";
+      $prevBound = 0;
+      foreach (json_decode($pricingSchedule) as $tier) {
+        $bound = $tier[0];
+        $rate = $tier[1];
+        if ($bound === null) {
+          $pricingExplained .= "{$prevBound}+ TB: $rate<br />";
+        } else {
+          $pricingExplained .= "{$prevBound}–{$bound} TB: $rate<br />";
+        }
+        $prevBound = $bound;
+      }
+      return $pricingExplained;
+    }
     // If the pricing schedule is just a number, use it to calculate the price
     if (($fv = floatval($pricingSchedule)) > 0) {
       return $storageUsed * $fv;

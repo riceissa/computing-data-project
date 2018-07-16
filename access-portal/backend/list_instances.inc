@@ -12,10 +12,10 @@
     $param_str .= "d";
     $params[] = $_REQUEST['min_ram'];
   }
-  if ($_REQUEST['service_filter'] ?? '') {
-    $query .= " and service regexp ?";
+  if ($_REQUEST['provider_filter'] ?? '') {
+    $query .= " and provider regexp ?";
     $param_str .= "s";
-    $params[] = $_REQUEST['service_filter'];
+    $params[] = $_REQUEST['provider_filter'];
   }
   if ($stmt = $mysqli->prepare($query)) {
     if ($params) {
@@ -29,7 +29,7 @@
 <table>
   <thead>
     <tr>
-      <th>Service</th>
+      <th>Provider</th>
       <th>Name</th>
       <th>Region</th>
       <th>Date</th>
@@ -44,7 +44,7 @@
   <tbody>
     <?php while ($row = $result->fetch_assoc()) { ?>
       <tr>
-        <td><?= $row['service'] ?></td>
+        <td><?= $row['provider'] ?></td>
         <td><?= $row['name'] ?></td>
         <td><?= $row['region'] ?></td>
         <td><?= $row['date_observed'] ?></td>

@@ -7,6 +7,11 @@
   } else {
     $storageUsed = 0;
   }
+  if ($_REQUEST['download_size'] ?? '') {
+    $storageDownloaded = floatval($_REQUEST['download_size']);
+  } else {
+    $storageDownloaded = 0;
+  }
   if ($_REQUEST['provider_filter'] ?? '') {
     $query .= " and provider regexp ?";
     $param_str .= "s";
@@ -60,6 +65,20 @@
     }
     return $total;
   }
+
+  function calculateDownloadCost($storageDownloaded, $pricingSchedule,
+                                 $expedited = 0, $standard = 0, $bulk = 0) {
+    if ($storageDownloaded <= 0) {
+      return $pricingSchedule;
+    }
+    if (is_numeric($pricingSchedule)) {
+      return $storageDownloaded * floatval($pricingSchedule);
+    }
+    // Otherwise, we have a JSON like
+    // {"Expedited": 0.03, "Standard": 0.01, "Bulk": 0.0025}
+    $j = json_decode($pricingSchedule, true);
+    return $expedited * $j["Expedited"] + $standard * $j["Standard"] + $bulk * $j["Bulk"];
+  }
 ?>
 
 <h1>Storage plans</h1>
@@ -68,6 +87,7 @@
 the site. The parameters you can use in the URL:
 
 * storage_size - storage size you intend to use in GB
+* download_size - the amount of data downloaded/retrieved in GB
 * provider_filter - filter the provider name using a regex
 </pre>
 
@@ -79,7 +99,7 @@ the site. The parameters you can use in the URL:
       <th>Region</th>
       <th>Date</th>
       <th>Storage cost (dollars<?= $storageUsed <= 0 ? " per GB" : "" ?> per month)</th>
-      <th>Download cost (dollars per GB, excludes transfer cost)</th>
+      <th>Download cost (dollars<?= $storageDownloaded <=0 ? " per GB" : "" ?>, excludes transfer cost)</th>
       <th>Write op cost (dollars per 1,000 requests)</th>
       <th>Read op cost (dollars per 1,000 requests)</th>
       <th>List op cost (dollars per 1,000 requests)</th>
@@ -95,7 +115,7 @@ the site. The parameters you can use in the URL:
         <td><?= $row['region'] ?></td>
         <td><?= $row['date_observed'] ?></td>
         <td style="text-align: right;"><?= calculateStorageCost($storageUsed, $row['storage_cost']) ?></td>
-        <td style="text-align: right;"><?= $row['download_cost'] ?></td>
+        <td style="text-align: right;"><?= calculateDownloadCost($storageDownloaded, $row['download_cost'], 0, 0, $storageDownloaded) ?></td>
         <td style="text-align: right;"><?= $row['write_op_cost'] ?></td>
         <td style="text-align: right;"><?= $row['read_op_cost'] ?></td>
         <td style="text-align: right;"><?= $row['list_op_cost'] ?></td>

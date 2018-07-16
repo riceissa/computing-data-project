@@ -78,7 +78,7 @@ the site. The parameters you can use in the URL:
       <th>Name</th>
       <th>Region</th>
       <th>Date</th>
-      <th>Storage cost (dollars per month)</th>
+      <th>Storage cost (dollars<?= $storageUsed <= 0 ? " per GB" : "" ?> per month)</th>
       <th>Download cost (dollars per GB, excludes transfer cost)</th>
       <th>Write op cost (dollars per 1,000 requests)</th>
       <th>Read op cost (dollars per 1,000 requests)</th>

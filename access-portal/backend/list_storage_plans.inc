@@ -3,8 +3,9 @@
   $param_str = "";
   $params = array();
   if ($_REQUEST['storage_size'] ?? '') {
-    // Eventually we might want to do this, but storage_size is a JSON so not
-    // easy to filter for in the query
+    $storageUsed = floatval($_REQUEST['storage_size']);
+  } else {
+    $storageUsed = 0;
   }
   if ($_REQUEST['provider_filter'] ?? '') {
     $query .= " and provider regexp ?";
@@ -17,6 +18,29 @@
     }
     $stmt->execute();
     $result = $stmt->get_result();
+  }
+
+  function calculateStorageCost($storageUsed, $pricingSchedule) {
+    // If the pricing schedule is just a number, use it to calculate the price
+    if (($fv = floatval($pricingSchedule)) > 0) {
+      return $storageUsed * $fv;
+    }
+    // Otherwise, we have a tiered pricing schedule, so use the bounds given to
+    // calculate the price
+    $total = 0;
+    $prevBound = 0;
+    $j = json_decode($pricingSchedule);
+    foreach ($j as $tier) {
+      $bound = $tier[0];
+      $rate = $tier[1];
+      $used = $bound === null ? $storageUsed - $prevBound : min($bound, $storageUsed) - $prevBound;
+      $total += $used * $rate;
+      if ($bound === null || $bound > $storageUsed) {
+        break;
+      }
+      $prevBound = $bound;
+    }
+    return $total;
   }
 ?>
 
@@ -43,7 +67,7 @@
         <td><?= $row['name'] ?></td>
         <td><?= $row['region'] ?></td>
         <td><?= $row['date_observed'] ?></td>
-        <td style="text-align: right;"><?= $row['storage_cost'] ?></td>
+        <td style="text-align: right;"><?= calculateStorageCost($storageUsed, $row['storage_cost']) ?></td>
         <td style="text-align: right;"><?= $row['download_cost'] ?></td>
         <td style="text-align: right;"><?= $row['write_op_cost'] ?></td>
         <td style="text-align: right;"><?= $row['read_op_cost'] ?></td>

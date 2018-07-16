@@ -44,6 +44,15 @@
   }
 ?>
 
+<h1>Storage plans</h1>
+
+<pre>This is some temporary documentation to help with developing and testing
+the site. The parameters you can use in the URL:
+
+* storage_size - storage size you intend to use in GB
+* provider_filter - filter the provider name using a regex
+</pre>
+
 <table>
   <thead>
     <tr>

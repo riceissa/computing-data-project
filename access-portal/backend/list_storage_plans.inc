@@ -72,7 +72,7 @@
   }
 
   function calculateSplitCost($amount, $pricingSchedule,
-                                 $expedited = 0, $standard = 0, $bulk = 0) {
+                              $expedited = 0, $standard = 0, $bulk = 0) {
     if ($amount <= 0) {
       if (is_numeric($pricingSchedule)) {
         return $pricingSchedule;

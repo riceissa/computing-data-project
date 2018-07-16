@@ -26,6 +26,16 @@
   }
 ?>
 
+<h1>Computing Data Project</h1>
+
+<pre>This is some temporary documentation to help with developing and testing
+the site. The parameters you can use in the URL:
+
+* min_cpu - minimum number of vCPUs required
+* min_ram - minimum amount of RAM required
+* provider_filter - filter the provider name using a regex
+</pre>
+
 <table>
   <thead>
     <tr>

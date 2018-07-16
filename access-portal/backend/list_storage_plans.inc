@@ -52,7 +52,7 @@
       <th>Region</th>
       <th>Date</th>
       <th>Storage cost (dollars per month)</th>
-      <th>Download cost</th>
+      <th>Download cost (dollars per GB, excludes transfer cost)</th>
       <th>Write op cost (dollars per 1,000 requests)</th>
       <th>Read op cost (dollars per 1,000 requests)</th>
       <th>List op cost (dollars per 1,000 requests)</th>

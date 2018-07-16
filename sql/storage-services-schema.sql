@@ -28,7 +28,13 @@ create table storage_plans (
 
     # Fields that only make sense for object storage
     # ==============================================
-    download_cost float(7,5), # In $/GB. This is called "data retrival" by some providers.
+    # The download cost or "data retrieval" cost as a string, in dollars per
+    # GB. If the cost structure is just a single rate, the format is a float
+    # (as a string). Otherwise it is a JSON dictionary of key-value pairs,
+    # where the keys are qualitative descriptions of the retrieval type and
+    # the values are the corresponding rates.
+    # Example: '{"Expedited": 0.03, "Standard": 0.01, "Bulk": 0.0025}'.
+    download_cost varchar(1000),
     upload_cost float(7,5), # in $/GB. I think this is the same as "data write" https://azure.microsoft.com/en-us/pricing/details/storage/blobs/
     # transfer_cost # waiting on this until we do network stuff. e.g. to another region https://azure.microsoft.com/en-us/pricing/details/storage/blobs/ This can depend on the region so it's actually a function...
     write_op_cost float(7,5),  # in dollars per 1,000 requests
@@ -36,7 +42,6 @@ create table storage_plans (
     list_op_cost float(7,5),  # in dollars per 1,000 requests
     delete_op_cost float(7,5),  # in dollars per 1,000 requests
     minimum_duration float(4,2),  # in months
-    retrieval_delay float(4,2),  # units?
 
     # Fields that only make sense for block storage
     # =============================================

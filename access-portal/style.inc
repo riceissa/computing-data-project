@@ -7,10 +7,10 @@ table {
 table th {
     background-color: #f2f2f2;
     border: 1px solid #aaaaaa;
-    padding: 5px 10px;
+    padding: 1px 2px;
 }
 table td {
     border: 1px solid #aaaaaa;
-    padding: 5px 10px;
+    padding: 1px 2px;
 }
 </style>

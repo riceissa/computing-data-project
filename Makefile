@@ -16,6 +16,7 @@ read:
 	mysql $(MYSQL_ARGS) computingdata < sql/ebs-plans.sql
 	mysql $(MYSQL_ARGS) computingdata < sql/google-cloud-persistent-disk.sql
 	mysql $(MYSQL_ARGS) computingdata < sql/azure-managed-disks.sql
+	mysql $(MYSQL_ARGS) computingdata < sql/digitalocean-block-storage.sql
 
 .PHONY: fetch_tablesorter
 fetch_tablesorter:

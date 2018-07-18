@@ -13,6 +13,7 @@ read:
 	mysql $(MYSQL_ARGS) computingdata < sql/google-cloud-storage-plans.sql
 	mysql $(MYSQL_ARGS) computingdata < sql/azure-blob-storage.sql
 	mysql $(MYSQL_ARGS) computingdata < sql/linode-block-storage.sql
+	mysql $(MYSQL_ARGS) computingdata < sql/ebs-plans.sql
 
 .PHONY: fetch_tablesorter
 fetch_tablesorter:

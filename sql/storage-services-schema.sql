@@ -65,6 +65,6 @@ create table storage_plans (
     # throughput_instance # throughput per instance; EBS previous gen has both this and throughput per disk https://aws.amazon.com/ebs/previous-generation/
     io_cost float(7,5),  # in $/(million ops). It looks like EBS prev gen didn't use IOPS for pricing https://aws.amazon.com/ebs/previous-generation/
     minimum_volume_size float(7,5),  # in GB; google's local SSD provisioned space has 375GB minimum https://cloud.google.com/persistent-disk/
-    maximum_volume_size float(7,5),  # in GB; https://www.linode.com/blockstorage
+    maximum_volume_size float(7,2),  # in GB; https://www.linode.com/blockstorage
     snapshot bool  # a boolean to track whether this is snapshot storage?
 ) ENGINE=InnoDB AUTO_INCREMENT=15239276 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;

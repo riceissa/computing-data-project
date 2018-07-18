@@ -59,8 +59,11 @@
     $prevBound = 0;
     $j = json_decode($pricingSchedule);
     foreach ($j as $tier) {
-      $bound = $tier[0];
+      $bound = $tier[0] === null ? null : $tier[0] * 1024;  // convert to GB
       $rate = $tier[1];
+      if ($rate === null) {
+        return "Cannot calculate (probably because the price was “Contact us”)";
+      }
       $used = $bound === null ? $storageUsed - $prevBound : min($bound, $storageUsed) - $prevBound;
       $total += $used * $rate;
       if ($bound === null || $bound > $storageUsed) {

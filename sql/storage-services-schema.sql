@@ -61,7 +61,7 @@ create table storage_plans (
     iops_cost float(7,5),  # cost for IOPS (input/output operations per second), in $/IOPS/month; see https://aws.amazon.com/ebs/pricing/
     iops float(7,2),  # per disk https://azure.microsoft.com/en-us/pricing/details/managed-disks/
     # iops_burst_performance # ??? https://aws.amazon.com/ebs/previous-generation/
-    throughput float(7,5),  # per disk, in MB/second https://azure.microsoft.com/en-us/pricing/details/managed-disks/
+    throughput float(7,1),  # per disk, in MB/second https://azure.microsoft.com/en-us/pricing/details/managed-disks/
     # throughput_burst_performance # ??? https://aws.amazon.com/ebs/previous-generation/
     # throughput_instance # throughput per instance; EBS previous gen has both this and throughput per disk https://aws.amazon.com/ebs/previous-generation/
     io_cost float(7,5),  # in $/(million ops). It looks like EBS prev gen didn't use IOPS for pricing https://aws.amazon.com/ebs/previous-generation/

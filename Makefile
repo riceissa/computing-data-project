@@ -15,6 +15,7 @@ read:
 	mysql $(MYSQL_ARGS) computingdata < sql/linode-block-storage.sql
 	mysql $(MYSQL_ARGS) computingdata < sql/ebs-plans.sql
 	mysql $(MYSQL_ARGS) computingdata < sql/google-cloud-persistent-disk.sql
+	mysql $(MYSQL_ARGS) computingdata < sql/azure-managed-disks.sql
 
 .PHONY: fetch_tablesorter
 fetch_tablesorter:

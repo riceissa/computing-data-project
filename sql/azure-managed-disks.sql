@@ -8,3 +8,12 @@ insert into storage_plans(provider,name,date_observed,region,redundancy,disk_siz
     ,('Azure Managed Disks','Premium SSD Managed Disks P40','2018-07-18','East US','LRS',2048,0.126489,'SSD',7500,250)
     ,('Azure Managed Disks','Premium SSD Managed Disks P50','2018-07-18','East US','LRS',4096,0.120989,'SSD',7500,250)
 ;
+
+insert into storage_plans(provider,name,date_observed,region,redundancy,disk_size,storage_cost,storage_type,iops,throughput,read_op_cost,write_op_cost,list_op_cost,delete_op_cost) values
+    ('Azure Managed Disks','Standard SSD Managed Disks E10','2018-07-18','East US','LRS',128,0.035,'SSD',500,60,0.0001,'0.0001',0.0001,0.0001)
+    ,('Azure Managed Disks','Standard SSD Managed Disks E15','2018-07-18','East US','LRS',256,0.03375,'SSD',500,60,0.0001,'0.0001',0.0001,0.0001)
+    ,('Azure Managed Disks','Standard SSD Managed Disks E20','2018-07-18','East US','LRS',512,0.0325,'SSD',500,60,0.0001,'0.0001',0.0001,0.0001)
+    ,('Azure Managed Disks','Standard SSD Managed Disks E30','2018-07-18','East US','LRS',1024,0.03,'SSD',500,60,0.0001,'0.0001',0.0001,0.0001)
+    ,('Azure Managed Disks','Standard SSD Managed Disks E40','2018-07-18','East US','LRS',2048,0.02875,'SSD',500,60,0.0001,'0.0001',0.0001,0.0001)
+    ,('Azure Managed Disks','Standard SSD Managed Disks E50','2018-07-18','East US','LRS',4096,0.0275,'SSD',500,60,0.0001,'0.0001',0.0001,0.0001)
+;

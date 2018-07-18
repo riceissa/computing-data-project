@@ -121,6 +121,12 @@ the site. The parameters you can use in the URL:
       <th>List op cost (dollars per 1,000 requests)</th>
       <th>Delete op cost (dollars per 1,000 requests)</th>
       <th>Minimum duration (months)</th>
+      <th>Disk size</th>
+      <th>Storage type</th>
+      <th>IOPS</th>
+      <th>Throughput</th>
+      <th>Minimum volume size (GB)</th>
+      <th>Maximum volume size (GB)</th>
     </tr>
   </thead>
   <tbody>
@@ -137,6 +143,12 @@ the site. The parameters you can use in the URL:
         <td style="text-align: right;"><?= $row['list_op_cost'] ?></td>
         <td style="text-align: right;"><?= $row['delete_op_cost'] ?></td>
         <td style="text-align: right;"><?= $row['minimum_duration'] ?></td>
+        <td style="text-align: right;"><?= $row['disk_size'] ?></td>
+        <td style="text-align: right;"><?= $row['storage_type'] ?></td>
+        <td style="text-align: right;"><?= $row['iops'] ?></td>
+        <td style="text-align: right;"><?= $row['throughput'] ?></td>
+        <td style="text-align: right;"><?= $row['minimum_volume_size'] ?></td>
+        <td style="text-align: right;"><?= $row['maximum_volume_size'] ?></td>
       </tr>
     <?php } ?>
   </tbody>

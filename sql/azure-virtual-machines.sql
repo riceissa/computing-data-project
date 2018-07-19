@@ -107,4 +107,19 @@ insert into cloud_instances(provider,name,date_observed,region,cpu,ram,storage_s
     ,('Microsoft Azure','E8-2s v3','2018-07-18','East US',4,64,128,0.532,'Linux')
     ,('Microsoft Azure','E16-4s v3','2018-07-18','East US',4,128,256,1.064,'Linux')
     ,('Microsoft Azure','E16-8s v3','2018-07-18','East US',8,128,256,1.064,'Linux')
+    ,('Microsoft Azure','E32-8s v3','2018-07-18','East US',8,256,512,2.128,'Linux')
+    ,('Microsoft Azure','E32-16s v3','2018-07-18','East US',16,256,512,2.128,'Linux')
+    ,('Microsoft Azure','E64-16s v3','2018-07-18','East US',16,432,864,4.011,'Linux')
+    ,('Microsoft Azure','E64-32s v3','2018-07-18','East US',32,432,864,4.011,'Linux')
+    # L-series not available in East US so using West US
+    ,('Microsoft Azure','L4','2018-07-18','West US',4,32,678,0.344,'Linux')
+    ,('Microsoft Azure','L8','2018-07-18','West US',8,64,1388,0.688,'Linux')
+    ,('Microsoft Azure','L16','2018-07-18','West US',16,128,2807,1.376,'Linux')
+    ,('Microsoft Azure','L32','2018-07-18','West US',32,256,5639,2.752,'Linux')
+    ,('Microsoft Azure','NC6','2018-07-18','East US',6,56,340,0.90,'Linux') # GPU: 1X K80
+    ,('Microsoft Azure','NC12','2018-07-18','East US',12,112,680,1.80,'Linux') # GPU: 2X K80
+    ,('Microsoft Azure','NC24','2018-07-18','East US',24,224,1440,3.60,'Linux') # GPU: 4X K80
+    ,('Microsoft Azure','NC24r','2018-07-18','East US',24,224,1440,3.96,'Linux') # GPU: 4X K80
+    ,('Microsoft Azure','NC6 v2','2018-07-18','East US',6,112,336,2.07,'Linux') # GPU: 1X P100
+    ,('Microsoft Azure','NC12 v2','2018-07-18','East US',12,224,672,4.14,'Linux') # GPU: 2X P100
 ;

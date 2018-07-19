@@ -94,4 +94,17 @@ insert into cloud_instances(provider,name,date_observed,region,cpu,ram,storage_s
     ,('Microsoft Azure','M64s','2018-07-18','East US',64,1024,2000,6.669,'Linux')
     ,('Microsoft Azure','M128s','2018-07-18','East US',128,2048,4000,13.34,'Linux')
     ,('Microsoft Azure','M32ts','2018-07-18','East US',32,192,1000,2.707,'Linux')
+    # SAP HANA on Azure Large Instances have no "pay as you go" option so skipping
+    ,('Microsoft Azure','DS11-1 v2','2018-07-18','East US',1,14,28,0.185,'Linux')
+    ,('Microsoft Azure','DS11-1 v2','2018-07-18','East US',1,28,56,0.371,'Linux')
+    ,('Microsoft Azure','DS12-2 v2','2018-07-18','East US',2,28,56,0.371,'Linux')
+    ,('Microsoft Azure','DS13-2 v2','2018-07-18','East US',2,56,112,0.741,'Linux')
+    ,('Microsoft Azure','DS13-4 v2','2018-07-18','East US',4,56,112,0.741,'Linux')
+    ,('Microsoft Azure','DS14-4 v2','2018-07-18','East US',4,112,224,1.482,'Linux')
+    ,('Microsoft Azure','DS14-8 v2','2018-07-18','East US',8,112,224,1.482,'Linux')
+    ,('Microsoft Azure','E4-2s v3','2018-07-18','East US',2,32,64,0.266,'Linux')
+    ,('Microsoft Azure','E8-2s v3','2018-07-18','East US',2,64,128,0.532,'Linux')
+    ,('Microsoft Azure','E8-2s v3','2018-07-18','East US',4,64,128,0.532,'Linux')
+    ,('Microsoft Azure','E16-4s v3','2018-07-18','East US',4,128,256,1.064,'Linux')
+    ,('Microsoft Azure','E16-8s v3','2018-07-18','East US',8,128,256,1.064,'Linux')
 ;

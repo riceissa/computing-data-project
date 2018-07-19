@@ -20,6 +20,8 @@ create table cloud_instances (
     ecu float(6,2),
     processor varchar(100),
 
+    gpu varchar(100),
+
     # This might need to be expanded out to network in/out, etc.
     network_throughput float(6,2),
 

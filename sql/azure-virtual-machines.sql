@@ -122,4 +122,11 @@ insert into cloud_instances(provider,name,date_observed,region,cpu,ram,storage_s
     ,('Microsoft Azure','NC24r','2018-07-18','East US',24,224,1440,3.96,'Linux') # GPU: 4X K80
     ,('Microsoft Azure','NC6 v2','2018-07-18','East US',6,112,336,2.07,'Linux') # GPU: 1X P100
     ,('Microsoft Azure','NC12 v2','2018-07-18','East US',12,224,672,4.14,'Linux') # GPU: 2X P100
+    ,('Microsoft Azure','NC24 v2','2018-07-18','East US',24,448,1344,8.28,'Linux') # GPU: 4X P100
+    ,('Microsoft Azure','NC24r v2','2018-07-18','East US',24,448,1344,9.108,'Linux') # GPU: 4X P100
+    ,('Microsoft Azure','NC6 v3','2018-07-18','East US',6,112,336,3.06,'Linux') # GPU: 1X V100
+    ,('Microsoft Azure','NC12 v3','2018-07-18','East US',12,224,672,6.12,'Linux') # GPU: 2X V100
+    ,('Microsoft Azure','NC24 v3','2018-07-18','East US',24,448,1344,12.24,'Linux') # GPU: 4X V100
+    ,('Microsoft Azure','NC24r v3','2018-07-18','East US',24,448,1344,13.47,'Linux') # GPU: 4X V100
+    ,('Microsoft Azure','NV6','2018-07-18','East US',6,56,340,1.14,'Linux') # GPU: 1X M60
 ;

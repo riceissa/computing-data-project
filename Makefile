@@ -3,6 +3,7 @@ MYSQL_ARGS=
 read:
 	mysql $(MYSQL_ARGS) computingdata -e "drop table if exists cloud_instances"
 	mysql $(MYSQL_ARGS) computingdata -e "drop table if exists storage_plans"
+	mysql $(MYSQL_ARGS) computingdata -e "drop table if exists network_transfer"
 	mysql $(MYSQL_ARGS) computingdata < sql/cloud-instances-schema.sql
 	mysql $(MYSQL_ARGS) computingdata < sql/storage-services-schema.sql
 	mysql $(MYSQL_ARGS) computingdata < sql/network-transfer-schema.sql
@@ -19,6 +20,7 @@ read:
 	mysql $(MYSQL_ARGS) computingdata < sql/google-cloud-persistent-disk.sql
 	mysql $(MYSQL_ARGS) computingdata < sql/azure-managed-disks.sql
 	mysql $(MYSQL_ARGS) computingdata < sql/digitalocean-block-storage.sql
+	mysql $(MYSQL_ARGS) computingdata < sql/ec2-network.sql
 
 .PHONY: fetch_tablesorter
 fetch_tablesorter:

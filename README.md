@@ -54,3 +54,14 @@ make fetch_tablesorter
 ```
 
 You can now visit `http://localhost:8000/` in your browser.
+
+## Getting EC2 spot price history
+
+Run the following:
+
+```bash
+aws ec2 describe-spot-price-history \
+    --start-time "$(date -u -d '91 days ago' +'%Y-%m-%dT%H:%M:%S')" \
+    --end-time "$(date -u -d 'tomorrow' +'%Y-%m-%dT%H:%M:%S')" \
+    --region us-east-1 > aws-spot-"$(date -u -Idate)".json
+```

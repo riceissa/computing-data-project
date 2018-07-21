@@ -22,6 +22,7 @@ read:
 	mysql $(MYSQL_ARGS) computingdata < sql/digitalocean-block-storage.sql
 	mysql $(MYSQL_ARGS) computingdata < sql/ec2-network.sql
 	mysql $(MYSQL_ARGS) computingdata < sql/google-cloud-network.sql
+	mysql $(MYSQL_ARGS) computingdata < sql/azure-network.sql
 
 .PHONY: fetch_tablesorter
 fetch_tablesorter:

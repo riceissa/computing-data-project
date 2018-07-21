@@ -14,6 +14,27 @@
     $stmt->execute();
     $result = $stmt->get_result();
   }
+
+  function calculateTieredCost($pricingSchedule) {
+    $pricingExplained = "";
+    $prevBound = 0;
+    foreach (json_decode($pricingSchedule) as $tier) {
+      $bound = $tier[0];
+      $rate = $tier[1];
+      if ($rate === null) {
+        $rateStr = "Contact provider";
+      } else {
+        $rateStr = "$rate";
+      }
+      if ($bound === null) {
+        $pricingExplained .= "{$prevBound}+ TB: $rateStr<br />";
+      } else {
+        $pricingExplained .= "{$prevBound}–{$bound} TB: $rateStr<br />";
+      }
+      $prevBound = $bound;
+    }
+    return $pricingExplained;
+  }
 ?>
 
 <h1>Network</h1>
@@ -41,7 +62,7 @@ the site. The parameters you can use in the URL:
         <td><?= $row['date_observed'] ?></td>
         <td><?= $row['source'] ?></td>
         <td><?= $row['destination'] ?></td>
-        <td style="text-align: right;"><?= $row['transfer_cost'] ?></td>
+        <td style="text-align: right;"><?= calculateTieredCost($row['transfer_cost']) ?></td>
       </tr>
     <?php } ?>
   </tbody>

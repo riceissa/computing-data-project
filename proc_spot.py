@@ -16,9 +16,13 @@ with open("aws-spot.json", "r") as f:
 
     linux = df[df.ProductDescription == 'Linux/UNIX']
 
+    linux.groupby('InstanceType').SpotPrice.mean().to_csv("naive.csv")
+
     resampled_data = []
 
     for key, group in linux.groupby(['InstanceType', 'AvailabilityZone']):
+        # TODO check what happens if we don't do resample.mean here, but rather
+        # something like asfreq
         resampled = group.set_index('Timestamp')['SpotPrice'].resample('D').mean()
         # The first .mean() was for the sample value to take a mean value; now
         # we're taking the mean of all the timestamps
@@ -26,4 +30,4 @@ with open("aws-spot.json", "r") as f:
         resampled_data.append((key[0], key[1], avg))
 
     df = pd.DataFrame(resampled_data, columns=['InstanceType', 'AvailabilityZone', 'SpotPrice'])
-    print(df.groupby('InstanceType').SpotPrice.mean())
+    df.groupby('InstanceType').SpotPrice.mean().to_csv("resampled.csv")

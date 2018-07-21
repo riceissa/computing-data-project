@@ -52,7 +52,7 @@ the site. The parameters you can use in the URL:
       <th>Date</th>
       <th>Source</th>
       <th>Destination</th>
-      <th>Transfer cost (dollars per GB)</th>
+      <th>Transfer cost (dollars per GB, tiering applies at monthly granularity)</th>
     </tr>
   </thead>
   <tbody>

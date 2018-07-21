@@ -1,11 +1,14 @@
 #!/usr/bin/env python3
 
 import json
+import sys
 import pandas as pd
 
-import pdb
+if len(sys.argv) < 2:
+    print("Please specify JSON file as first argument", file=sys.stderr)
+    quit()
 
-with open("aws-spot.json", "r") as f:
+with open(sys.argv[1], "r") as f:
     j = json.load(f)
     df = pd.DataFrame(j["SpotPriceHistory"])
 

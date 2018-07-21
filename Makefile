@@ -5,6 +5,7 @@ read:
 	mysql $(MYSQL_ARGS) computingdata -e "drop table if exists storage_plans"
 	mysql $(MYSQL_ARGS) computingdata < sql/cloud-instances-schema.sql
 	mysql $(MYSQL_ARGS) computingdata < sql/storage-services-schema.sql
+	mysql $(MYSQL_ARGS) computingdata < sql/network-transfer-schema.sql
 	mysql $(MYSQL_ARGS) computingdata < sql/linode-instances.sql
 	mysql $(MYSQL_ARGS) computingdata < sql/digitalocean-instances.sql
 	mysql $(MYSQL_ARGS) computingdata < sql/ec2-instances.sql

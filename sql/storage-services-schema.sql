@@ -16,7 +16,7 @@ create table storage_plans (
     # the format is a float (as a string), in dollars per GB per month. Otherwise it is a
     # tiered plan and this should be a JSON list of lists, where the inner list
     # is [bound, rate] for each tier (bound in TB, rate in dollars per GB per
-    # month). The bound on the final tier item is not used (as it the tier
+    # month). The bound on the final tier item is not used (as it is the tier
     # saying "everything above the previous tier"), and should be null.
     # The tiers must be ordered by the bound.
     # Example: '[[50, 0.023], [500, 0.022], [null, 0.021]]'. The meaning of

@@ -5,10 +5,8 @@ import sys
 import pandas as pd
 import mysql.connector
 import datetime
-
 import matplotlib.pyplot as plt
-
-import pdb
+import re
 
 
 def mysql_quote(x):
@@ -26,6 +24,14 @@ def mysql_quote(x):
 if len(sys.argv) < 2:
     print("Please specify JSON file as first argument", file=sys.stderr)
     quit()
+
+
+m = re.search(r"(\d\d\d\d-\d\d-\d\d)\.json", sys.argv[1])
+if not m:
+    print("File name must end with YYYY-MM-DD.json", file=sys.stderr)
+    quit()
+
+date_observed = m.group(1)
 
 with open(sys.argv[1], "r") as f:
     j = json.load(f)
@@ -94,7 +100,7 @@ with open(sys.argv[1], "r") as f:
             column_vals["network_throughput"],
             column_vals["storage_type"],
             str(cost),
-            mysql_quote("2018-07-21"),  # TODO change this
+            mysql_quote(date_observed),
             column_vals["region"],
             column_vals["operating_system"],
         ]) + ")")

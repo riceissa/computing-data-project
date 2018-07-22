@@ -73,32 +73,25 @@ with open(sys.argv[1], "r") as f:
             cursor.execute(f"""select distinct({column}) from cloud_instances
                                where name = %s""", (instance_type,))
             result = cursor.fetchall()
-            assert len(result) <= 1, (instance_type, column, result)
-            if len(result) == 0:
-                # e.g. for c5.18xlarge; this happens when we haven't inserted
-                # data for on-demand for this instance type, so skip inserting
-                # for now
-                break
+            assert len(result) == 1, (instance_type, column, result)
             if isinstance(result[0][0], float):
                 column_vals[column] = str(result[0][0])
             else:
                 column_vals[column] = mysql_quote(result[0][0])
-
-        if len(column_vals) == 10:
-            print(("    " if first else "    ,") + "(" + ",".join([
-                column_vals["provider"],
-                column_vals["name"],
-                column_vals["ram"],
-                column_vals["cpu"],
-                column_vals["ecu"],
-                column_vals["processor"],
-                column_vals["network_throughput"],
-                column_vals["storage_type"],
-                str(cost),
-                mysql_quote("2018-07-21"),  # TODO change this
-                column_vals["region"],
-                column_vals["operating_system"],
-            ]) + ")")
-            first = False
+        print(("    " if first else "    ,") + "(" + ",".join([
+            column_vals["provider"],
+            column_vals["name"],
+            column_vals["ram"],
+            column_vals["cpu"],
+            column_vals["ecu"],
+            column_vals["processor"],
+            column_vals["network_throughput"],
+            column_vals["storage_type"],
+            str(cost),
+            mysql_quote("2018-07-21"),  # TODO change this
+            column_vals["region"],
+            column_vals["operating_system"],
+        ]) + ")")
+        first = False
 
     pd.DataFrame(asfreq_data, columns=['InstanceType', 'AvailabilityZone', 'SpotPrice']).groupby('InstanceType').SpotPrice.mean().to_csv("asfreq.csv")

@@ -1,21 +1,9 @@
-create table cloud_instance_costs (
-    cloud_instance_cost_id int(11) not null auto_increment primary key,
-    name varchar(100) not null,
-
-    # Cost per hour
-    cost float(7,5),
-
-    odate date,
-    region varchar(100),
-    operating_system varchar(100)
-) ENGINE=InnoDB AUTO_INCREMENT=15239276 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
-insert into cloud_instance_costs(name, cost, odate, region, operating_system) values
-    ('t2.nano',0.0058,'2017-12-01','US East (N. Virginia)','Linux')
-    ,('t2.micro',0.0116,'2017-12-01','US East (N. Virginia)','Linux')
-    ,('t2.small',0.023,'2017-12-01','US East (N. Virginia)','Linux')
-    ,('t2.medium',0.0464,'2017-12-01','US East (N. Virginia)','Linux')
-    ,('t2.large',0.0928,'2017-12-01','US East (N. Virginia)','Linux')
+insert into cloud_instances(name, ram, cpu, ecu, processor, network_throughput, storage_type, cost, date_observed, region, operating_system) values
+    ('t2.nano',0.5,1,NULL,'Intel Xeon family',NULL,'EBS Only',0.0058,'2017-12-01','US East (N. Virginia)','Linux')
+    ,('t2.micro',1,1,NULL,'Intel Xeon family',NULL,'EBS Only',0.0116,'2017-12-01','US East (N. Virginia)','Linux')
+    ,('t2.small',2,1,NULL,'Intel Xeon family',NULL,'EBS Only',0.023,'2017-12-01','US East (N. Virginia)','Linux')
+    ,('t2.medium',4,2,NULL,'Intel Xeon family',NULL,'EBS Only',0.0464,'2017-12-01','US East (N. Virginia)','Linux')
+    ,('t2.large',8,2,NULL,'Intel Xeon family',NULL,'EBS Only',0.0928,'2017-12-01','US East (N. Virginia)','Linux')
     ,('t2.xlarge',0.1856,'2017-12-01','US East (N. Virginia)','Linux')
     ,('t2.2xlarge',0.3712,'2017-12-01','US East (N. Virginia)','Linux')
     ,('m5.large',0.096,'2017-12-01','US East (N. Virginia)','Linux')

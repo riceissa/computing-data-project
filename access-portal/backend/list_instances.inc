@@ -17,6 +17,11 @@
     $param_str .= "s";
     $params[] = $_REQUEST['provider_filter'];
   }
+  if ($_REQUEST['name_filter'] ?? '') {
+    $query .= " and name regexp ?";
+    $param_str .= "s";
+    $params[] = $_REQUEST['name_filter'];
+  }
   if ($stmt = $mysqli->prepare($query)) {
     if ($params) {
       $stmt->bind_param($param_str, ...$params);
@@ -34,6 +39,7 @@ the site. The parameters you can use in the URL:
 * min_cpu - minimum number of vCPUs required
 * min_ram - minimum amount of RAM required
 * provider_filter - filter the provider name using a regex
+* name_filter - filter the instance name using a regex
 </pre>
 
 <table>

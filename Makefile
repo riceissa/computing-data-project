@@ -11,6 +11,7 @@ read:
 	mysql $(MYSQL_ARGS) computingdata < sql/digitalocean-instances.sql
 	mysql $(MYSQL_ARGS) computingdata < sql/ec2-instances.sql
 	mysql $(MYSQL_ARGS) computingdata < sql/ec2-instances-manual.sql
+	mysql $(MYSQL_ARGS) computingdata < sql/ec2-spot-instances.sql
 	mysql $(MYSQL_ARGS) computingdata < sql/gce-instances.sql
 	mysql $(MYSQL_ARGS) computingdata < sql/azure-virtual-machines.sql
 	mysql $(MYSQL_ARGS) computingdata < sql/s3-plans.sql

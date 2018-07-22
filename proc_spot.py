@@ -3,6 +3,8 @@
 import json
 import sys
 import pandas as pd
+import mysql.connector
+import datetime
 
 import matplotlib.pyplot as plt
 
@@ -47,5 +49,39 @@ with open(sys.argv[1], "r") as f:
     df = pd.DataFrame(resampled_data, columns=['InstanceType', 'AvailabilityZone', 'SpotPrice'])
     df.groupby('InstanceType').SpotPrice.mean().to_csv("resampled.csv")
     df.groupby('InstanceType').SpotPrice.min().to_csv("resampled_min.csv")
+    first = True
+    cnx = mysql.connector.connect(user='issa', database='computingdata')
+    cursor = cnx.cursor()
+    for instance_type, cost in df.groupby('InstanceType').SpotPrice.min().to_dict().items():
+        column_vals = {}
+        for column in ["provider", "name", "ram", "cpu", "ecu", "processor",
+                       "network_throughput", "storage_type",
+                       "region", "operating_system"]:
+            cursor.execute(f"""select distinct({column}) from cloud_instances
+                               where name = %s""", (instance_type,))
+            result = cursor.fetchall()
+            assert len(result) <= 1, (instance_type, column, result)
+            if len(result) == 0:
+                # e.g. for c5.18xlarge; this happens when we haven't inserted
+                # data for on-demand for this instance type, so skip inserting
+                # for now
+                break
+            column_vals[column] = str(result[0][0])
+        if len(column_vals) == 10:
+            print(("    " if first else "    ,") + "(" + ",".join([
+                column_vals["provider"],
+                column_vals["name"],
+                column_vals["ram"],
+                column_vals["cpu"],
+                column_vals["ecu"],
+                column_vals["processor"],
+                column_vals["network_throughput"],
+                column_vals["storage_type"],
+                str(cost),
+                "2018-07-21",  # TODO change this
+                column_vals["region"],
+                column_vals["operating_system"],
+            ]) + ")")
+            first = False
 
     pd.DataFrame(asfreq_data, columns=['InstanceType', 'AvailabilityZone', 'SpotPrice']).groupby('InstanceType').SpotPrice.mean().to_csv("asfreq.csv")

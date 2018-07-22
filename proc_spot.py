@@ -29,22 +29,23 @@ with open(sys.argv[1], "r") as f:
     asfreq_data = []
 
     for key, group in linux.groupby(['InstanceType', 'AvailabilityZone']):
-        # TODO sort_index here?
-        resampled = group.set_index('Timestamp')['SpotPrice'].resample('D').mean()
-        asfreq = group.set_index('Timestamp').sort_index().SpotPrice.asfreq('D')
-        # The first .mean() was for the sample value to take a mean value; now
-        # we're taking the mean of all the timestamps
-        avg = resampled.mean()
-        resampled_data.append((key[0], key[1], avg))
-        asfreq_data.append((key[0], key[1], asfreq.mean()))
+        instance_type, az = key
+        resampled = group.set_index('Timestamp').sort_index().SpotPrice.resample('D').mean()
+        # The .mean() after resampling was for the sample value to take a mean
+        # value; now we're taking the mean of all the timestamps
+        resampled_data.append((instance_type, az, resampled.mean()))
 
-        # if key[0] == 'c1.xlarge':
-        #     group.set_index('Timestamp').sort_index().SpotPrice.plot(label=key[1])
+        asfreq = group.set_index('Timestamp').sort_index().SpotPrice.asfreq('D')
+        asfreq_data.append((instance_type, az, asfreq.mean()))
+
+        # if instance_type == 'c1.xlarge':
+        #     group.set_index('Timestamp').sort_index().SpotPrice.plot(label=az)
 
     # plt.legend(loc='upper left')
     # plt.show()
+
     df = pd.DataFrame(resampled_data, columns=['InstanceType', 'AvailabilityZone', 'SpotPrice'])
     df.groupby('InstanceType').SpotPrice.mean().to_csv("resampled.csv")
-    df.groupby('InstanceType').SpotPrice.mean().to_csv("resampled_min.csv")
+    df.groupby('InstanceType').SpotPrice.min().to_csv("resampled_min.csv")
 
     pd.DataFrame(asfreq_data, columns=['InstanceType', 'AvailabilityZone', 'SpotPrice']).groupby('InstanceType').SpotPrice.mean().to_csv("asfreq.csv")

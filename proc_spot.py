@@ -10,6 +10,19 @@ import matplotlib.pyplot as plt
 
 import pdb
 
+
+def mysql_quote(x):
+    """Quote the string x using MySQL quoting rules. If x is the empty string,
+    return "NULL". Probably not safe against maliciously formed strings, but
+    our input is fixed and from a basically trustable source."""
+    if not x:
+        return "NULL"
+    x = x.replace("\\", "\\\\")
+    x = x.replace("'", "''")
+    x = x.replace("\n", "\\n")
+    return "'{}'".format(x)
+
+
 if len(sys.argv) < 2:
     print("Please specify JSON file as first argument", file=sys.stderr)
     quit()
@@ -66,7 +79,11 @@ with open(sys.argv[1], "r") as f:
                 # data for on-demand for this instance type, so skip inserting
                 # for now
                 break
-            column_vals[column] = str(result[0][0])
+            if isinstance(result[0][0], float):
+                column_vals[column] = str(result[0][0])
+            else:
+                column_vals[column] = mysql_quote(result[0][0])
+
         if len(column_vals) == 10:
             print(("    " if first else "    ,") + "(" + ",".join([
                 column_vals["provider"],
@@ -78,7 +95,7 @@ with open(sys.argv[1], "r") as f:
                 column_vals["network_throughput"],
                 column_vals["storage_type"],
                 str(cost),
-                "2018-07-21",  # TODO change this
+                mysql_quote("2018-07-21"),  # TODO change this
                 column_vals["region"],
                 column_vals["operating_system"],
             ]) + ")")

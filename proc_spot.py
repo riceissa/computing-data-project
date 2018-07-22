@@ -63,8 +63,12 @@ with open(sys.argv[1], "r") as f:
     df.groupby('InstanceType').SpotPrice.mean().to_csv("resampled.csv")
     df.groupby('InstanceType').SpotPrice.min().to_csv("resampled_min.csv")
     first = True
+
+    # The spot instances API only has the price data, so query the database for
+    # the instance specs
     cnx = mysql.connector.connect(user='issa', database='computingdata')
     cursor = cnx.cursor()
+    print("insert into cloud_instances(provider,name,ram,cpu,ecu,processor,network_throughput,storage_type,cost,date_observed,region,operating_system) values")
     for instance_type, cost in df.groupby('InstanceType').SpotPrice.min().to_dict().items():
         column_vals = {}
         for column in ["provider", "name", "ram", "cpu", "ecu", "processor",
@@ -93,5 +97,6 @@ with open(sys.argv[1], "r") as f:
             column_vals["operating_system"],
         ]) + ")")
         first = False
+    print(";")
 
     pd.DataFrame(asfreq_data, columns=['InstanceType', 'AvailabilityZone', 'SpotPrice']).groupby('InstanceType').SpotPrice.mean().to_csv("asfreq.csv")

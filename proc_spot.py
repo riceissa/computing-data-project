@@ -80,6 +80,8 @@ with open(sys.argv[1], "r") as f:
             assert len(result) == 1, (instance_type, column, result)
             if isinstance(result[0][0], float):
                 column_vals[column] = str(result[0][0])
+            elif column == "name":
+                column_vals[column] = mysql_quote(result[0][0] + " spot")
             else:
                 column_vals[column] = mysql_quote(result[0][0])
         print(("    " if first else "    ,") + "(" + ",".join([

@@ -16,6 +16,9 @@
   }
 
   function calculateTieredCost($pricingSchedule) {
+    if (is_numeric($pricingSchedule)) {
+      return $pricingSchedule;
+    }
     $pricingExplained = "";
     $prevBound = 0;
     foreach (json_decode($pricingSchedule) as $tier) {

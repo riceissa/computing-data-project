@@ -1,5 +1,5 @@
 # Data from http://archive.today/2018.08.27-213433/https://aws.amazon.com/lightsail/pricing/ and https://aws.amazon.com/blogs/aws/amazon-lightsail-update-more-instance-sizes-and-price-reductions/ and https://web.archive.org/web/20180724215301/https://aws.amazon.com/lightsail/pricing/
-insert into cloud_instances(provider, operating_system, date_observed, cost, ram, cpu, storage_type, storage_size)
+insert into cloud_instances(provider, operating_system, date_observed, cost, ram, cpu, storage_type, storage_size) values
     ('Amazon Lightsail', 'Linux', '2018-07-24', 0.006845, 0.5, 1, 'SSD', 20)
     ,('Amazon Lightsail', 'Linux', '2018-07-24', 0.013689, 1, 1, 'SSD', 30)
     ,('Amazon Lightsail', 'Linux', '2018-07-24', 0.027379, 2, 1, 'SSD', 40)

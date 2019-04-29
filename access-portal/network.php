@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+  <?php include_once("analytics.inc"); ?>
   <?php include_once("backend/globalVariables/passwordFile.inc"); ?>
   <head>
     <meta charset="utf-8">

@@ -21,3 +21,36 @@ insert into cloud_instances(provider,date_observed,ram,cpu,storage_type,storage_
     ,('DigitalOcean','2018-07-06',64,32,'SSD',400,0.952)
     ,('DigitalOcean','2018-07-06',86,46,'SSD',575,1.369)
 ;
+
+insert into cloud_instances(provider,date_observed,ram,cpu,storage_type,storage_size,cost) values
+    # Standard
+    ('DigitalOcean','2019-06-18',1,1,'SSD',25,0.007)
+    ,('DigitalOcean','2019-06-18',2,1,'SSD',50,0.015)
+    ,('DigitalOcean','2019-06-18',3,1,'SSD',60,0.022)
+    ,('DigitalOcean','2019-06-18',2,2,'SSD',60,0.022)
+    ,('DigitalOcean','2019-06-18',1,3,'SSD',60,0.022)
+    ,('DigitalOcean','2019-06-18',4,2,'SSD',80,0.030)
+    ,('DigitalOcean','2019-06-18',8,4,'SSD',160,0.060)
+    ,('DigitalOcean','2019-06-18',16,6,'SSD',320,0.119)
+    ,('DigitalOcean','2019-06-18',32,8,'SSD',640,0.238)
+    ,('DigitalOcean','2019-06-18',48,12,'SSD',960,0.357)
+    ,('DigitalOcean','2019-06-18',64,16,'SSD',1280,0.476)
+    ,('DigitalOcean','2019-06-18',96,20,'SSD',1920,0.714)
+    ,('DigitalOcean','2019-06-18',128,24,'SSD',2560,0.952)
+    ,('DigitalOcean','2019-06-18',192,32,'SSD',3840,1.429)
+
+    # General Purpose
+    ,('DigitalOcean','2019-06-18',8,2,'SSD',25,0.089)
+    ,('DigitalOcean','2019-06-18',16,4,'SSD',50,0.179)
+    ,('DigitalOcean','2019-06-18',32,8,'SSD',100,0.357)
+    ,('DigitalOcean','2019-06-18',64,16,'SSD',200,0.714)
+    ,('DigitalOcean','2019-06-18',128,32,'SSD',400,1.429)
+    ,('DigitalOcean','2019-06-18',160,40,'SSD',500,1.786)
+
+    # CPU Optimized
+    ,('DigitalOcean','2019-06-18',4,2,'SSD',25,0.060)
+    ,('DigitalOcean','2019-06-18',8,4,'SSD',50,0.119)
+    ,('DigitalOcean','2019-06-18',16,8,'SSD',100,0.238)
+    ,('DigitalOcean','2019-06-18',32,16,'SSD',200,0.476)
+    ,('DigitalOcean','2019-06-18',64,32,'SSD',400,0.952)
+;

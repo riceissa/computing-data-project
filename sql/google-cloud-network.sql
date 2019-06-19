@@ -9,3 +9,15 @@ insert into network_transfer(provider, date_observed, source, destination, trans
     ,('Google Compute Engine', '2018-07-21', 'Iowa', 'China excluding Hong Kong', '[[1, 0.23], [10, 0.22], [null, 0.20]]')
     ,('Google Compute Engine', '2018-07-21', 'Iowa', 'Australia', '[[1, 0.19], [10, 0.18], [null, 0.15]]')
 ;
+
+insert into network_transfer(provider, date_observed, source, destination, transfer_cost) values
+    ('Google Compute Engine', '2019-06-18', 'Internet', 'Iowa', '0')
+    ,('Google Compute Engine', '2019-06-18', 'Iowa', 'Iowa same zone', '0')
+    ,('Google Compute Engine', '2019-06-18', 'Iowa', 'Google products', '0')
+    ,('Google Compute Engine', '2019-06-18', 'Iowa', 'Google Cloud Platform service in same region (except Cloud Memorystore for Redis, Cloud Filestore, and Cloud SQL)', '0')
+    ,('Google Compute Engine', '2019-06-18', 'Iowa', 'Iowa different zone', '0.01')
+    ,('Google Compute Engine', '2019-06-18', 'Iowa', 'Regions in US and Canada', '0.01')
+    ,('Google Compute Engine', '2019-06-18', 'Iowa', 'Worldwide (except China and Australia but including Hong Kong)', '[[1, 0.12], [10, 0.11], [null, 0.08]]')
+    ,('Google Compute Engine', '2019-06-18', 'Iowa', 'China excluding Hong Kong', '[[1, 0.23], [10, 0.22], [null, 0.20]]')
+    ,('Google Compute Engine', '2019-06-18', 'Iowa', 'Australia', '[[1, 0.19], [10, 0.18], [null, 0.15]]')
+;

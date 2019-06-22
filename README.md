@@ -1,5 +1,7 @@
 # Computing Data Project
 
+The Computing Data Project website is at https://computingdata.vipulnaik.com/
+
 ## Setting up
 
 First, set up the database:

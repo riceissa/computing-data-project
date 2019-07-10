@@ -145,3 +145,244 @@ insert into cloud_instances(provider,name,date_observed,region,cpu,ram,storage_s
     ,('Microsoft Azure','ND24','2018-07-18','East US',24,448,1344,8.28,'Linux','4X P40')
     ,('Microsoft Azure','ND24r','2018-07-18','East US',24,448,1344,9.108,'Linux','4X P40')
 ;
+
+
+insert into cloud_instances(provider,name,date_observed,region,cpu,ram,storage_size,cost,operating_system) values
+    ('Microsoft Azure','B1LS','2019-07-09','East US',1,0.5,4,0.0072,'Linux')
+    ,('Microsoft Azure','B1S','2019-07-09','East US',1,1,4,0.0143,'Linux')
+    ,('Microsoft Azure','B1MS','2019-07-09','East US',1,2,4,0.0285,'Linux')
+    ,('Microsoft Azure','B2S','2019-07-09','East US',2,4,8,0.0572,'Linux')
+    ,('Microsoft Azure','B2MS','2019-07-09','East US',2,8,16,0.1143,'Linux')
+    ,('Microsoft Azure','B4MS','2019-07-09','East US',4,16,32,0.2280,'Linux')
+    ,('Microsoft Azure','B8MS','2019-07-09','East US',8,32,64,0.4573,'Linux')
+    ,('Microsoft Azure','B12MS','2019-07-09','East US',12,48,96,0.6852,'Linux')
+    ,('Microsoft Azure','B16MS','2019-07-09','East US',16,64,128,0.9145,'Linux')
+    ,('Microsoft Azure','B20MS','2019-07-09','East US',20,80,160,1.1424,'Linux')
+
+    ,('Microsoft Azure','A1 v2','2019-07-09','East US',1,2,10,0.0591,'Linux')
+    ,('Microsoft Azure','A2 v2','2019-07-09','East US',2,4,20,0.1250,'Linux')
+    ,('Microsoft Azure','A2m v2','2019-07-09','East US',2,16,20,0.1634,'Linux')
+    ,('Microsoft Azure','A4 v2','2019-07-09','East US',4,8,40,0.2623,'Linux')
+    ,('Microsoft Azure','A4m v2','2019-07-09','East US',4,32,40,0.3268,'Linux')
+    ,('Microsoft Azure','A8 v2','2019-07-09','East US',8,16,80,0.5492,'Linux')
+    ,('Microsoft Azure','A8m v2','2019-07-09','East US',8,64,80,0.6522,'Linux')
+
+    ,('Microsoft Azure','D2 v3','2019-07-09','East US',2,8,50,0.1319,'Linux')
+    ,('Microsoft Azure','D4 v3','2019-07-09','East US',4,16,100,0.2637,'Linux')
+    ,('Microsoft Azure','D8 v3','2019-07-09','East US',8,32,200,0.5273,'Linux')
+    ,('Microsoft Azure','D16 v3','2019-07-09','East US',16,64,400,1.0545,'Linux')
+    ,('Microsoft Azure','D32 v3','2019-07-09','East US',32,128,800,2.1090,'Linux')
+    ,('Microsoft Azure','D48 v3','2019-07-09','East US',48,192,1200,3.1634,'Linux')
+    ,('Microsoft Azure','D64 v3','2019-07-09','East US',64,256,1600,4.2179,'Linux')
+
+    ,('Microsoft Azure','D2s v3','2019-07-09','East US',2,8,16,0.1319,'Linux')
+    ,('Microsoft Azure','D4s v3','2019-07-09','East US',4,16,32,0.2637,'Linux')
+    ,('Microsoft Azure','D8s v3','2019-07-09','East US',8,32,64,0.5273,'Linux')
+    ,('Microsoft Azure','D16s v3','2019-07-09','East US',16,64,128,1.0545,'Linux')
+    ,('Microsoft Azure','D32s v3','2019-07-09','East US',32,128,256,2.1090,'Linux')
+    ,('Microsoft Azure','D48s v3','2019-07-09','East US',48,192,384,3.1634,'Linux')
+    ,('Microsoft Azure','D64s v3','2019-07-09','East US',64,256,512,4.2179,'Linux')
+
+    ,('Microsoft Azure','D1 v2','2019-07-09','East US',1,3.5,50,0.1003,'Linux')
+    ,('Microsoft Azure','D2 v2','2019-07-09','East US',2,7,100,0.2005,'Linux')
+    ,('Microsoft Azure','D3 v2','2019-07-09','East US',4,14,200,0.4023,'Linux')
+    ,('Microsoft Azure','D4 v2','2019-07-09','East US',8,28,400,0.8033,'Linux')
+    ,('Microsoft Azure','D5 v2','2019-07-09','East US',16,56,800,1.6065,'Linux')
+
+    ,('Microsoft Azure','DS1 v2','2019-07-09','East US',1,3.5,7,0.1003,'Linux')
+    ,('Microsoft Azure','DS2 v2','2019-07-09','East US',2,7,14,0.2005,'Linux')
+    ,('Microsoft Azure','DS3 v2','2019-07-09','East US',4,14,28,0.4023,'Linux')
+    ,('Microsoft Azure','DS4 v2','2019-07-09','East US',8,28,56,0.8033,'Linux')
+    ,('Microsoft Azure','DS5 v2','2019-07-09','East US',16,56,112,1.6065,'Linux')
+
+    ,('Microsoft Azure','DC2s','2019-07-09','East US',2,8,100,0.2719,'Linux')
+    ,('Microsoft Azure','DC4s','2019-07-09','East US',4,16,200,0.5424,'Linux')
+
+    ,('Microsoft Azure','F2 v2','2019-07-09','East US',2,4,16,0.1162,'Linux')
+    ,('Microsoft Azure','F4 v2','2019-07-09','East US',4,8,32,0.2321,'Linux')
+    ,('Microsoft Azure','F8 v2','2019-07-09','East US',8,16,64,0.4641,'Linux')
+    ,('Microsoft Azure','F16 v2','2019-07-09','East US',16,32,128,0.9296,'Linux')
+    ,('Microsoft Azure','F32 v2','2019-07-09','East US',32,64,256,1.8577,'Linux')
+    ,('Microsoft Azure','F48 v2','2019-07-09','East US',48,96,384,2.7872,'Linux')
+    ,('Microsoft Azure','F64 v2','2019-07-09','East US',64,128,512,3.7154,'Linux')
+    ,('Microsoft Azure','F72 v2','2019-07-09','East US',72,144,576,4.1808,'Linux')
+
+    ,('Microsoft Azure','F1','2019-07-09','East US',1,2,16,0.0683,'Linux')
+    ,('Microsoft Azure','F2','2019-07-09','East US',2,4,32,0.1360,'Linux')
+    ,('Microsoft Azure','F4','2019-07-09','East US',4,8,64,0.2733,'Linux')
+    ,('Microsoft Azure','F8','2019-07-09','East US',8,16,128,0.5465,'Linux')
+    ,('Microsoft Azure','F16','2019-07-09','East US',16,32,256,1.0930,'Linux')
+
+    ,('Microsoft Azure','F1s','2019-07-09','East US',1,2,4,0.0683,'Linux')
+    ,('Microsoft Azure','F2s','2019-07-09','East US',2,4,8,0.1360,'Linux')
+    ,('Microsoft Azure','F4s','2019-07-09','East US',4,8,16,0.2733,'Linux')
+    ,('Microsoft Azure','F8s','2019-07-09','East US',8,16,32,0.5465,'Linux')
+    ,('Microsoft Azure','F16s','2019-07-09','East US',16,32,64,1.0930,'Linux')
+
+    ,('Microsoft Azure','E2 v3','2019-07-09','East US',2,16,50,0.1730,'Linux')
+    ,('Microsoft Azure','E4 v3','2019-07-09','East US',4,32,100,0.3460,'Linux')
+    ,('Microsoft Azure','E8 v3','2019-07-09','East US',8,64,200,0.6920,'Linux')
+    ,('Microsoft Azure','E16 v3','2019-07-09','East US',16,128,400,1.3840,'Linux')
+    ,('Microsoft Azure','E20 v3','2019-07-09','East US',20,160,500,1.7300,'Linux')
+    ,('Microsoft Azure','E32 v3','2019-07-09','East US',32,256,800,2.7680,'Linux')
+    ,('Microsoft Azure','E48 v3','2019-07-09','East US',48,384,1200,4.1520,'Linux')
+    ,('Microsoft Azure','E64i v3','2019-07-09','East US',64,432,1600,4.9827,'Linux')
+    ,('Microsoft Azure','E64 v3','2019-07-09','East US',64,432,1600,4.9827,'Linux')
+
+    ,('Microsoft Azure','E2s v3','2019-07-09','East US',2,16,32,0.1730,'Linux')
+    ,('Microsoft Azure','E4s v3','2019-07-09','East US',4,32,64,0.3460,'Linux')
+    ,('Microsoft Azure','E8s v3','2019-07-09','East US',8,64,128,0.6920,'Linux')
+    ,('Microsoft Azure','E16s v3','2019-07-09','East US',16,128,256,1.3840,'Linux')
+    ,('Microsoft Azure','E20s v3','2019-07-09','East US',20,160,320,1.7300,'Linux')
+    ,('Microsoft Azure','E32s v3','2019-07-09','East US',32,256,512,2.7680,'Linux')
+    ,('Microsoft Azure','E48s v3','2019-07-09','East US',48,384,768,4.1520,'Linux')
+    ,('Microsoft Azure','E64is v3','2019-07-09','East US',64,432,864,4.9827,'Linux')
+    ,('Microsoft Azure','E64s v3','2019-07-09','East US',64,432,864,4.9827,'Linux')
+
+    ,('Microsoft Azure','D11 v2','2019-07-09','East US',2,14,100,0.2541,'Linux')
+    ,('Microsoft Azure','D12 v2','2019-07-09','East US',4,28,200,0.5094,'Linux')
+    ,('Microsoft Azure','D13 v2','2019-07-09','East US',8,56,400,1.0174,'Linux')
+    ,('Microsoft Azure','D14 v2','2019-07-09','East US',16,112,800,2.0348,'Linux')
+    ,('Microsoft Azure','D15 v2','2019-07-09','East US',20,140,1000,2.5442,'Linux')
+
+    ,('Microsoft Azure','DS11 v2','2019-07-09','East US',2,14,28,0.2541,'Linux')
+    ,('Microsoft Azure','DS12 v2','2019-07-09','East US',4,28,56,0.5094,'Linux')
+    ,('Microsoft Azure','DS13 v2','2019-07-09','East US',8,56,112,1.0174,'Linux')
+    ,('Microsoft Azure','DS14 v2','2019-07-09','East US',16,112,224,2.0348,'Linux')
+    ,('Microsoft Azure','DS15 v2','2019-07-09','East US',20,140,280,2.5442,'Linux')
+
+    # G-series not available in East US so switching to West US
+    ,('Microsoft Azure','G1','2019-07-09','West US',2,28,384,0.8376,'Linux')
+    ,('Microsoft Azure','G2','2019-07-09','West US',4,56,768,1.6751,'Linux')
+    ,('Microsoft Azure','G3','2019-07-09','West US',8,112,1536,3.3502,'Linux')
+    ,('Microsoft Azure','G4','2019-07-09','West US',16,224,3072,6.7003,'Linux')
+    ,('Microsoft Azure','G5','2019-07-09','West US',32,448,6144,11.9314,'Linux')
+
+    # Gs-Series not available in East US so switching to West US
+    ,('Microsoft Azure','Gs1','2019-07-09','West US',2,28,56,0.8376,'Linux')
+    ,('Microsoft Azure','Gs2','2019-07-09','West US',4,56,112,1.6751,'Linux')
+    ,('Microsoft Azure','Gs3','2019-07-09','West US',8,112,224,3.3502,'Linux')
+    ,('Microsoft Azure','Gs4','2019-07-09','West US',16,224,448,6.7003,'Linux')
+    ,('Microsoft Azure','Gs5','2019-07-09','West US',32,448,896,11.9314,'Linux')
+
+    ,('Microsoft Azure','M8ms','2019-07-09','East US',8,219,256,2.1097,'Linux')
+    ,('Microsoft Azure','M16ms','2019-07-09','East US',16,438,512,4.2193,'Linux')
+    ,('Microsoft Azure','M32ts','2019-07-09','East US',32,192,1024,3.7168,'Linux')
+    ,('Microsoft Azure','M32ls','2019-07-09','East US',32,256,1024,3.9447,'Linux')
+    ,('Microsoft Azure','M32ms','2019-07-09','East US',32,875,1024,8.4385,'Linux')
+    ,('Microsoft Azure','M64ls','2019-07-09','East US',64,512,2048,7.4348,'Linux')
+    ,('Microsoft Azure','M64s','2019-07-09','East US',64,1024,2048,9.1566,'Linux')
+    ,('Microsoft Azure','M64','2019-07-09','East US',64,1024,7168,9.1566,'Linux')
+    ,('Microsoft Azure','M64ms','2019-07-09','East US',64,1792,2048,14.1928,'Linux')
+    ,('Microsoft Azure','M64m','2019-07-09','East US',64,1792,7168,14.1928,'Linux')
+    ,('Microsoft Azure','M128s','2019-07-09','East US',128,2048,4096,18.3131,'Linux')
+    ,('Microsoft Azure','M128','2019-07-09','East US',128,2048,14336,18.3131,'Linux')
+    ,('Microsoft Azure','M128ms','2019-07-09','East US',128,3892,4096,36.6427,'Linux')
+    ,('Microsoft Azure','M128m','2019-07-09','East US',128,3892,14336,36.6427,'Linux')
+
+    ,('Microsoft Azure','M208s v2','2019-07-09','East US',208,2850,7040,30.6317,'Linux')
+    ,('Microsoft Azure','M208ms v2','2019-07-09','East US',208,5700,7040,61.2633,'Linux')
+
+    # SAP HANA on Azure Large Instances have no "pay as you go" option so skipping
+
+    ,('Microsoft Azure','DS11-1 v2','2019-07-09','East US',1,14,28,0.2541,'Linux')
+    ,('Microsoft Azure','DS12-1 v2','2019-07-09','East US',1,28,56,0.5094,'Linux')
+    ,('Microsoft Azure','DS12-2 v2','2019-07-09','East US',2,28,56,0.5094,'Linux')
+    ,('Microsoft Azure','E4-2s v3','2019-07-09','East US',2,32,64,0.3460,'Linux')
+    ,('Microsoft Azure','DS13-2 v2','2019-07-09','East US',2,56,112,1.0174,'Linux')
+    ,('Microsoft Azure','E8-2s v3','2019-07-09','East US',2,64,128,0.6920,'Linux')
+    ,('Microsoft Azure','DS13-4 v2','2019-07-09','East US',4,56,112,1.0174,'Linux')
+    ,('Microsoft Azure','E8-4s v3','2019-07-09','East US',4,64,128,0.6920,'Linux')
+    ,('Microsoft Azure','DS14-4 v2','2019-07-09','East US',4,112,224,2.0348,'Linux')
+    ,('Microsoft Azure','E16-4s v3','2019-07-09','East US',4,128,256,1.3840,'Linux')
+    ,('Microsoft Azure','DS14-8 v2','2019-07-09','East US',8,112,224,2.0348,'Linux')
+    ,('Microsoft Azure','E16-8s v3','2019-07-09','East US',8,128,256,1.3840,'Linux')
+    ,('Microsoft Azure','E32-8s v3','2019-07-09','East US',8,256,512,2.7680,'Linux')
+    ,('Microsoft Azure','E32-16s v3','2019-07-09','East US',16,256,512,2.7680,'Linux')
+    ,('Microsoft Azure','E64-16s v3','2019-07-09','East US',16,432,864,4.9827,'Linux')
+    ,('Microsoft Azure','M64-16ms','2019-07-09','East US',16,1750,2048,14.1928,'Linux')
+    ,('Microsoft Azure','E64-32s v3','2019-07-09','East US',32,432,864,4.9827,'Linux')
+    ,('Microsoft Azure','M64-32ms','2019-07-09','East US',32,1750,2048,14.1928,'Linux')
+    ,('Microsoft Azure','M128-32ms','2019-07-09','East US',32,3800,4096,36.6427,'Linux')
+    ,('Microsoft Azure','M128-64ms','2019-07-09','East US',64,3800,4096,36.6427,'Linux')
+
+    # Lsv2-series also has NVMe storage
+    ,('Microsoft Azure','L8s v2','2019-07-09','East US',8,64,80,0.8568,'Linux')
+    ,('Microsoft Azure','L16s v2','2019-07-09','East US',16,128,160,1.7136,'Linux')
+    ,('Microsoft Azure','L32s v2','2019-07-09','East US',32,256,320,3.4271,'Linux')
+    ,('Microsoft Azure','L48s v2','2019-07-09','East US',48,384,480,5.1406,'Linux')
+    ,('Microsoft Azure','L64s v2','2019-07-09','East US',64,512,640,6.8541,'Linux')
+    ,('Microsoft Azure','L80s v2','2019-07-09','East US',80,640,800,8.5676,'Linux')
+
+    # L-series not available in East US so using West US
+    ,('Microsoft Azure','L4','2019-07-09','West US',4,32,678,0.4724,'Linux')
+    ,('Microsoft Azure','L8','2019-07-09','West US',8,64,1388,0.9447,'Linux')
+    ,('Microsoft Azure','L16','2019-07-09','West US',16,128,2807,1.8893,'Linux')
+    ,('Microsoft Azure','L32','2019-07-09','West US',32,256,5630,3.7785,'Linux')
+
+    ,('Microsoft Azure','H8','2019-07-09','East US',8,56,1000,1.2412,'Linux')
+    ,('Microsoft Azure','H8m','2019-07-09','East US',8,112,1000,1.6628,'Linux')
+    ,('Microsoft Azure','H16r','2019-07-09','East US',16,112,2000,2.7296,'Linux')
+    ,('Microsoft Azure','H16','2019-07-09','East US',16,112,2000,2.4811,'Linux')
+    ,('Microsoft Azure','H16mr','2019-07-09','East US',16,224,2000,3.6577,'Linux')
+    ,('Microsoft Azure','H16m','2019-07-09','East US',16,224,2000,3.3255,'Linux')
+
+    ,('Microsoft Azure','H8 Promo','2019-07-09','East US',8,56,1000,0.7456,'Linux')
+    ,('Microsoft Azure','H8m Promo','2019-07-09','East US',8,112,1000,0.9982,'Linux')
+    ,('Microsoft Azure','H16 Promo','2019-07-09','East US',16,112,2000,1.4898,'Linux')
+    ,('Microsoft Azure','H16r Promo','2019-07-09','East US',16,112,2000,1.6394,'Linux')
+    ,('Microsoft Azure','H16m Promo','2019-07-09','East US',16,224,2000,1.9964,'Linux')
+    ,('Microsoft Azure','H16mr Promo','2019-07-09','East US',16,224,2000,2.1955,'Linux')
+
+    # Not available in East US or West US; using South Central US
+    ,('Microsoft Azure','HB60rs','2019-07-09','East US',60,240,700,3.4435,'Linux')
+
+    ,('Microsoft Azure','HC44rs','2019-07-09','East US',44,352,700,4.3497,'Linux')
+;
+
+insert into cloud_instances(provider,name,date_observed,region,cpu,ram,storage_size,cost,operating_system,gpu) values
+    ('Microsoft Azure','NC6','2019-07-09','East US',6,56,340,1.2357,'Linux','1X K80')
+    ,('Microsoft Azure','NC12','2019-07-09','East US',12,112,680,2.4714,'Linux','2X K80')
+    ,('Microsoft Azure','NC24r','2019-07-09','East US',24,224,1440,5.4371,'Linux','4X K80')
+    ,('Microsoft Azure','NC24','2019-07-09','East US',24,224,1440,4.9428,'Linux','4X K80')
+
+    ,('Microsoft Azure','NC6 Promo','2019-07-09','East US',6,56,340,0.5438,'Linux','1X K80')
+    ,('Microsoft Azure','NC12 Promo','2019-07-09','East US',12,112,680,1.0875,'Linux','2X K80')
+    ,('Microsoft Azure','NC24 Promo','2019-07-09','East US',24,224,1440,2.1749,'Linux','4X K80')
+    ,('Microsoft Azure','NC24r Promo','2019-07-09','East US',24,224,1440,2.3918,'Linux','4X K80')
+
+    ,('Microsoft Azure','NC6s v2','2019-07-09','East US',6,112,736,2.8422,'Linux','1X P100')
+    ,('Microsoft Azure','NC12s v2','2019-07-09','East US',12,224,1474,5.6843,'Linux','2X P100')
+    ,('Microsoft Azure','NC24rs v2','2019-07-09','East US',24,448,2948,12.5053,'Linux','4X P100')
+    ,('Microsoft Azure','NC24s v2','2019-07-09','East US',24,448,2948,11.3685,'Linux','4X P100')
+
+    ,('Microsoft Azure','NC6s v3','2019-07-09','East US',6,112,736,4.2014,'Linux','1X V100')
+    ,('Microsoft Azure','NC12s v3','2019-07-09','East US',12,224,1474,8.4028,'Linux','2X V100')
+    ,('Microsoft Azure','NC24rs v3','2019-07-09','East US',24,448,2948,18.4861,'Linux','4X V100')
+    ,('Microsoft Azure','NC24s v3','2019-07-09','East US',24,448,2948,16.8056,'Linux','4X V100')
+
+    ,('Microsoft Azure','NV6','2019-07-09','East US',6,56,340,1.5653,'Linux','1X M60')
+    ,('Microsoft Azure','NV12','2019-07-09','East US',12,112,680,3.1305,'Linux','2X M60')
+    ,('Microsoft Azure','NV24','2019-07-09','East US',24,224,1440,6.2609,'Linux','4X M60')
+
+    ,('Microsoft Azure','NV6 Promo','2019-07-09','East US',6,56,340,0.9392,'Linux','1X M60')
+    ,('Microsoft Azure','NV12 Promo','2019-07-09','East US',12,112,680,1.8783,'Linux','2X M60')
+    ,('Microsoft Azure','NV24 Promo','2019-07-09','East US',24,224,1440,3.7566,'Linux','4X M60')
+
+    # NVv2-series not available in East US so using West US
+    ,('Microsoft Azure','NV6s v2','2019-07-09','West US',6,112,736,1.0531,'Linux','1X M60')
+    ,('Microsoft Azure','NV12s v2','2019-07-09','West US',12,224,1474,2.1062,'Linux','2X M60')
+    ,('Microsoft Azure','NV24s v2','2019-07-09','West US',24,448,2948,4.2138,'Linux','4X M60')
+
+    # NVv3-series not available in East US so using West US
+    ,('Microsoft Azure','NV12s v3','2019-07-09','West US',12,112,736,1.5653,'Linux','1X M60')
+    ,('Microsoft Azure','NV24s v3','2019-07-09','West US',24,224,1474,3.1305,'Linux','2X M60')
+    ,('Microsoft Azure','NV48s v3','2019-07-09','West US',48,448,2948,6.2609,'Linux','4X M60')
+
+    ,('Microsoft Azure','ND6','2019-07-09','East US',6,112,736,2.8422,'Linux','1X P40')
+    ,('Microsoft Azure','ND12','2019-07-09','East US',12,224,1474,5.6843,'Linux','2X P40')
+    ,('Microsoft Azure','ND24r','2019-07-09','East US',24,448,2948,12.5053,'Linux','4X P40')
+    ,('Microsoft Azure','ND24','2019-07-09','East US',24,448,2948,11.3685,'Linux','4X P40')
+
+    ,('Microsoft Azure','ND40 v2','2019-07-09','East US',40,672,1344,16.8056,'Linux','8X V100 (NVlink)')
+;

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+  <script src="change-theme.js"></script>
   <?php include_once("analytics.inc"); ?>
   <?php include_once("backend/globalVariables/passwordFile.inc"); ?>
    <head>

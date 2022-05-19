@@ -1,9 +1,13 @@
 MYSQL_ARGS=
 
-read:
+.PHONY: reset
+reset:
 	mysql $(MYSQL_ARGS) computingdata -e "drop table if exists cloud_instances"
 	mysql $(MYSQL_ARGS) computingdata -e "drop table if exists storage_plans"
 	mysql $(MYSQL_ARGS) computingdata -e "drop table if exists network_transfer"
+
+.PHONY: read
+read:
 	mysql $(MYSQL_ARGS) computingdata < sql/cloud-instances-schema.sql
 	mysql $(MYSQL_ARGS) computingdata < sql/storage-services-schema.sql
 	mysql $(MYSQL_ARGS) computingdata < sql/network-transfer-schema.sql

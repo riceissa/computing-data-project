@@ -1,35 +1,40 @@
 MYSQL_ARGS=
+DATABASE=computingdata
+
+.PHONY: init
+init:
+	mysql $(MYSQL_ARGS) -e "create database $(DATABASE)"
 
 .PHONY: reset
 reset:
-	mysql $(MYSQL_ARGS) computingdata -e "drop table if exists cloud_instances"
-	mysql $(MYSQL_ARGS) computingdata -e "drop table if exists storage_plans"
-	mysql $(MYSQL_ARGS) computingdata -e "drop table if exists network_transfer"
+	mysql $(MYSQL_ARGS) $(DATABASE) -e "drop table if exists cloud_instances"
+	mysql $(MYSQL_ARGS) $(DATABASE) -e "drop table if exists storage_plans"
+	mysql $(MYSQL_ARGS) $(DATABASE) -e "drop table if exists network_transfer"
 
 .PHONY: read
 read:
-	mysql $(MYSQL_ARGS) computingdata < sql/cloud-instances-schema.sql
-	mysql $(MYSQL_ARGS) computingdata < sql/storage-services-schema.sql
-	mysql $(MYSQL_ARGS) computingdata < sql/network-transfer-schema.sql
-	mysql $(MYSQL_ARGS) computingdata < sql/linode-instances.sql
-	mysql $(MYSQL_ARGS) computingdata < sql/digitalocean-instances.sql
-	mysql $(MYSQL_ARGS) computingdata < sql/ec2-instances.sql
-	mysql $(MYSQL_ARGS) computingdata < sql/ec2-instances-manual.sql
-	mysql $(MYSQL_ARGS) computingdata < sql/ec2-spot-instances.sql
-	mysql $(MYSQL_ARGS) computingdata < sql/amazon-lightsail-instances.sql
-	mysql $(MYSQL_ARGS) computingdata < sql/gce-instances.sql
-	mysql $(MYSQL_ARGS) computingdata < sql/azure-virtual-machines.sql
-	mysql $(MYSQL_ARGS) computingdata < sql/s3-plans.sql
-	mysql $(MYSQL_ARGS) computingdata < sql/google-cloud-storage-plans.sql
-	mysql $(MYSQL_ARGS) computingdata < sql/azure-blob-storage.sql
-	mysql $(MYSQL_ARGS) computingdata < sql/linode-block-storage.sql
-	mysql $(MYSQL_ARGS) computingdata < sql/ebs-plans.sql
-	mysql $(MYSQL_ARGS) computingdata < sql/google-cloud-persistent-disk.sql
-	mysql $(MYSQL_ARGS) computingdata < sql/azure-managed-disks.sql
-	mysql $(MYSQL_ARGS) computingdata < sql/digitalocean-block-storage.sql
-	mysql $(MYSQL_ARGS) computingdata < sql/ec2-network.sql
-	mysql $(MYSQL_ARGS) computingdata < sql/google-cloud-network.sql
-	mysql $(MYSQL_ARGS) computingdata < sql/azure-network.sql
+	mysql $(MYSQL_ARGS) $(DATABASE) < sql/cloud-instances-schema.sql
+	mysql $(MYSQL_ARGS) $(DATABASE) < sql/storage-services-schema.sql
+	mysql $(MYSQL_ARGS) $(DATABASE) < sql/network-transfer-schema.sql
+	mysql $(MYSQL_ARGS) $(DATABASE) < sql/linode-instances.sql
+	mysql $(MYSQL_ARGS) $(DATABASE) < sql/digitalocean-instances.sql
+	mysql $(MYSQL_ARGS) $(DATABASE) < sql/ec2-instances.sql
+	mysql $(MYSQL_ARGS) $(DATABASE) < sql/ec2-instances-manual.sql
+	mysql $(MYSQL_ARGS) $(DATABASE) < sql/ec2-spot-instances.sql
+	mysql $(MYSQL_ARGS) $(DATABASE) < sql/amazon-lightsail-instances.sql
+	mysql $(MYSQL_ARGS) $(DATABASE) < sql/gce-instances.sql
+	mysql $(MYSQL_ARGS) $(DATABASE) < sql/azure-virtual-machines.sql
+	mysql $(MYSQL_ARGS) $(DATABASE) < sql/s3-plans.sql
+	mysql $(MYSQL_ARGS) $(DATABASE) < sql/google-cloud-storage-plans.sql
+	mysql $(MYSQL_ARGS) $(DATABASE) < sql/azure-blob-storage.sql
+	mysql $(MYSQL_ARGS) $(DATABASE) < sql/linode-block-storage.sql
+	mysql $(MYSQL_ARGS) $(DATABASE) < sql/ebs-plans.sql
+	mysql $(MYSQL_ARGS) $(DATABASE) < sql/google-cloud-persistent-disk.sql
+	mysql $(MYSQL_ARGS) $(DATABASE) < sql/azure-managed-disks.sql
+	mysql $(MYSQL_ARGS) $(DATABASE) < sql/digitalocean-block-storage.sql
+	mysql $(MYSQL_ARGS) $(DATABASE) < sql/ec2-network.sql
+	mysql $(MYSQL_ARGS) $(DATABASE) < sql/google-cloud-network.sql
+	mysql $(MYSQL_ARGS) $(DATABASE) < sql/azure-network.sql
 
 .PHONY: fetch_tablesorter
 fetch_tablesorter:

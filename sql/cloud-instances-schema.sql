@@ -11,27 +11,27 @@ create table cloud_instances (
 
     # Measured in "GB", which could be gigabytes or gibibytes. Some pricing
     # pages don't make it clear which one is being used.
-    ram float(6,2),
+    ram float(8,2),
 
     # Virtual CPUs (vCPU). Apparently vCPU definitions differ across
     # services but we don't bother to distinguish this?
-    cpu float(6,2),
+    cpu float(8,2),
 
-    ecu float(6,2),
+    ecu float(8,2),
     processor varchar(100),
 
     gpu varchar(100),
 
     # This might need to be expanded out to network in/out, etc.
-    network_throughput float(6,2),
+    network_throughput float(8,2),
 
     storage_type varchar(100),
 
     # Measured in "GB"
-    storage_size float(6,2),
+    storage_size float(8,2),
 
     # Cost per hour of use
-    cost float(7,5),
+    cost float(8,5),
 
     # This is the date for which the specs and pricing are valid, not the date
     # on which the data was entered

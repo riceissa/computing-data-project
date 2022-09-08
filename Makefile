@@ -36,8 +36,8 @@ read:
 	mysql $(MYSQL_ARGS) $(DATABASE) < sql/google-cloud-network.sql
 	mysql $(MYSQL_ARGS) $(DATABASE) < sql/azure-network.sql
 
-.PHONY: fetch_tablesorter
-fetch_tablesorter:
+.PHONY: fetch_table_sorting
+fetch_table_sorting:
 	curl -Lo access-portal/jquery.min.js \
 		'https://code.jquery.com/jquery-3.2.1.min.js'
 	curl -Lo access-portal/jquery.tablesorter.js \
@@ -45,8 +45,8 @@ fetch_tablesorter:
 	curl -Lo access-portal/tablesorter.css \
 		'https://raw.githubusercontent.com/riceissa/tablesorter-bare-bones-theme/master/theme.css'
 
-.PHONY: clean_tablesorter
-clean_tablesorter:
+.PHONY: clean_table_sorting
+clean_table_sorting:
 	rm -f access-portal/jquery.min.js
 	rm -f access-portal/jquery.tablesorter.js
 	rm -f access-portal/tablesorter.css

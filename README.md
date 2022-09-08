@@ -48,11 +48,11 @@ cd access-portal
 php -S localhost:8000
 ```
 
-To get AnchorJS and tablesorter, run:
+To get AnchorJS and table sorting, run:
 
 ```bash
 make fetch_anchorjs
-make fetch_tablesorter
+make fetch_table_sorting
 ```
 
 You can now visit `http://localhost:8000/` in your browser.

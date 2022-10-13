@@ -84,7 +84,7 @@
         return $pricingSchedule;
       }
       $j = json_decode($pricingSchedule, true);
-      return "Expedited: {$j['Expedited']}<br />Standard: {$j['Standard']}<br />Bulk: {$j['Bulk']}";
+      return "Expedited: {$j['Expedited'] ?? 'N/A'}<br />Standard: {$j['Standard'] ?? 'N/A'}<br />Bulk: {$j['Bulk'] ?? 'N/A'}";
     }
     if (is_numeric($pricingSchedule)) {
       return $amount * floatval($pricingSchedule);
@@ -92,7 +92,7 @@
     // Otherwise, we have a JSON like
     // {"Expedited": 0.03, "Standard": 0.01, "Bulk": 0.0025}
     $j = json_decode($pricingSchedule, true);
-    return $expedited * $j["Expedited"] + $standard * $j["Standard"] + $bulk * $j["Bulk"];
+    return $expedited * ($j["Expedited"] ?? 0) + $standard * ($j["Standard"] ?? 0) + $bulk * ($j["Bulk"] ?? 0);
   }
 ?>
 

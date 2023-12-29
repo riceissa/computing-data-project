@@ -39,7 +39,7 @@ read:
 .PHONY: fetch_table_sorting
 fetch_table_sorting:
 	curl -Lo access-portal/jquery.min.js \
-		'https://code.jquery.com/jquery-3.2.1.min.js'
+		'https://code.jquery.com/jquery-3.7.1.min.js'
 	curl -Lo access-portal/jquery.tablesorter.js \
 		'https://raw.githubusercontent.com/Mottie/tablesorter/master/js/jquery.tablesorter.js'
 	curl -Lo access-portal/tablesorter.css \

@@ -39,4 +39,4 @@ create table cloud_instances (
 
     region varchar(100),
     operating_system varchar(100)
-) ENGINE=InnoDB AUTO_INCREMENT=15239276 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;
